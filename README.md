@@ -6,13 +6,13 @@ Big, fat and heavy-weight vagrant box containing lot of tools and libs for data 
 
 What is this heavy-weight box for? For super-quick prototyping. 
 
-Yes. You know that. You got an idea. You want to immediately start working on it. 
+Yes. You know that.
 
-Than you realize you need to setup development envrionment with all the tools and stuff.
+1. You got an idea. You want to immediately start working on it. 
+2. You realize you need to setup development envrionment with all the tools and stuff.
 
 That is what this fat boy is here for.
-
-It can be made up and running with few commands.
+It can be made up and running with [few commands](https://github.com/korczis/apollo-fat-box#getting-started).
 
 ## What is included
 
