@@ -49,4 +49,4 @@ For list of TODO stuff see [TODO.md](https://github.com/korczis/apollo-uber-box/
 
 ## Credits
 
-- @pavelbinar for QA
+- [@pavelbinar](https://github.com/pavelbinar) for QA
