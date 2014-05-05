@@ -4,8 +4,13 @@ List of stuff which needs to be be done.
 
 ## High Priority 
 
-- Install Hadoop
+- Install Apache Tika
+- Install Apache Hadoop + Pig/Hive
+- Install Apache HBase
+- Install Apache Storm as Service (Apache Storm already installed in /opt/apache-storm-0.9.1)
+- Install Kafka
 - Install TitanDB
+- Optionally Install Emscripten
 
 ## Medium Priority
 
