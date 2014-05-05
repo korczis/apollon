@@ -1,6 +1,6 @@
-# apollo-uber-box
+# apollo-fat-box
 
-Big, fat and heavy-weight box containing lot of tools and libs for data science.
+Big, fat and heavy-weight vagrant box containing lot of tools and libs for data science.
 
 ## About
 
@@ -49,4 +49,4 @@ For list of TODO stuff see [TODO.md](https://github.com/korczis/apollo-uber-box/
 
 ## Credits
 
-- [@pavelbinar](https://github.com/pavelbinar) for QA
+- [@pavelbinar](https://github.com/pavelbinar) for QA and not just that.
