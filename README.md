@@ -14,6 +14,16 @@ That is what this fat boy is here for.
 
 It can be made up and running with few commands.
 
+## What is included
+
+Lot of usefull stuff, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-uber-box/blob/master/WHATS_IN.md)
+
+- Databases - couchdb, memcached, mongodb, postgresql, redis, ...
+- Programming Languages - c, c++, clojure, node.js, ruby/rvm, scala, ...
+- Tools - mocha, ...
+
+Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-uber-box/blob/master/WHATS_IN.md)
+
 ## Getting Started
 
 ```
