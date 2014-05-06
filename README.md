@@ -56,10 +56,10 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ```
 # Clone this repo containging Vagrantfile with vagrant settings
-git clone https://github.com/korczis/apollo-uber-box.git
+git clone https://github.com/korczis/apollo-fat-box.git
 
 # Enter the folder with Vagrantfile, be aware of trailing box folder in path!
-cd apollo-uber-box/box
+cd apollo-fat-box/box
 
 # Kick off the vagrant up process
 vagrant up
