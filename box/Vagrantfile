@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
   
   # PostgreSQL
   config.vm.network "forwarded_port", guest: 5432, host: 5433
+  # PostgreSQL
+  config.vm.network "forwarded_port", guest: 5432, host: 5433
   
   # CouchDB
   config.vm.network "forwarded_port", guest: 5984, host: 5985
