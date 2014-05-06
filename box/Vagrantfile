@@ -6,8 +6,9 @@ Vagrant.configure("2") do |config|
   
   config.vm.hostname = "apollo-fat-box"
   
-  # PostgreSQL
-  config.vm.network "forwarded_port", guest: 5432, host: 5433
+  # Nginx
+  config.vm.network "forwarded_port", guest: 80, host: 81
+  
   # PostgreSQL
   config.vm.network "forwarded_port", guest: 5432, host: 5433
   
