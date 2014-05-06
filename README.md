@@ -6,7 +6,7 @@ Big, fat and heavy-weight vagrant box containing lot of tools and libs for data 
 
 What is this heavy-weight box for? For super-quick prototyping. 
 
-Yes. You know that.
+Yes. You know what.
 
 1. You got an idea. You want to immediately start working on it. 
 2. You realize you need to setup development envrionment with all the tools and stuff.
