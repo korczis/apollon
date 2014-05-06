@@ -34,6 +34,7 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 | --------------|:------:|:-------------------------------:|:--------:|:--------:|
 | SSH           | 22     | [2222](ssh://localhost:2222)    | vagrant  | vagrant  |
 | CouchDB       | 5984   | [5985](http://localhost:5985)   | n/a      | n/a      |
+| Redis         | 6379   | 6380                            | n/a      | n/a      |
 | Tomcat7       | 8080   | [8081](http://localhost:8081)   | vagrant  | vagrant  |
 | ElasticSearch | 9200   | [9201](http://localhost:9201)   | n/a      | n/a      |
 | RabbitMQ      | 15672  | [15673](http://localhost:15673) | guest    | guest    |
