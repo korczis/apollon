@@ -35,9 +35,9 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 | CouchDB       | 5984   | 5985  |
 | Tomcat7       | 8080   | 8081  |
 | ElasticSearch | 9200   | 9201  |
+| RabbitMQ      | 15672  | 15673 |
 | MongoDB       | 27017  | 27018 |
 | MongoDB Rest  | 28017  | 28018 |
-| RabbitMQ      | 55672  | 55673 |
 
 ## Getting Started
 
