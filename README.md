@@ -37,6 +37,7 @@ That means that you can access them using localhost.
 | ElasticSearch | 9200   | 9201  |
 | MongoDB       | 27017  | 27018 |
 | MongoDB Rest  | 28017  | 28018 |
+| RabbitMQ      | 55672  | 55673 |
 
 ## Getting Started
 
