@@ -46,6 +46,14 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ## Getting Started
 
+### Prerequisites
+
+- Ruby
+- Ruby gems
+- Vagrant
+
+### Installation
+
 ```
 # Clone this repo containging Vagrantfile with vagrant settings
 git clone https://github.com/korczis/apollo-uber-box.git
