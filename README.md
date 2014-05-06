@@ -28,7 +28,7 @@ Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-uber-bo
 
 This lists services which are automatically forwarded from running fat box to localhost.
 
-That means that you can access them using localhost.
+That means that you can access them using [http://localhost:{HostPortNumer}](http://localhost:{HostPortNumer}) from table below.
 
 | Service       | Guest  | Host  |
 | --------------|:------:|:-----:|
