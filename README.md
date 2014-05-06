@@ -32,6 +32,7 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 | Service       | Guest  | Host                            | Username | Password |
 | --------------|:------:|:-------------------------------:|:--------:|:--------:|
+| SSH           | 22     | [2222](ssh://localhost:2222)    | vagrant  | vagrant  |
 | CouchDB       | 5984   | [5985](http://localhost:5985)   | n/a      | n/a      |
 | Tomcat7       | 8080   | [8081](http://localhost:8081)   | vagrant  | vagrant  |
 | ElasticSearch | 9200   | [9201](http://localhost:9201)   | n/a      | n/a      |
