@@ -24,6 +24,20 @@ Lot of usefull stuff, for full list see [WHATS_IN.md](https://github.com/korczis
 
 Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-uber-box/blob/master/WHATS_IN.md)
 
+## Automagically forwarded services
+
+This lists services which are automatically forwarded from running fat box to localhost.
+
+That means that you can access them using localhost.
+
+| Service       | Guest  | Host  |
+| --------------|:------:|:-----:|
+| CouchDB       | 5984   | 5985  |
+| Tomcat7       | 8080   | 8081  |
+| ElasticSearch | 9200   | 9201  |
+| MongoDB       | 27017  | 27018 |
+| MongoDB Rest  | 28017  | 28018 |
+
 ## Getting Started
 
 ```
