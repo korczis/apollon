@@ -33,7 +33,8 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 | Service       | Guest  | Host                            | Username | Password |
 | --------------|:------:|:-------------------------------:|:--------:|:--------:|
 | SSH           | 22     | [2222](ssh://localhost:2222)    | vagrant  | vagrant  |
-| Nginx         | 80     | [81](http://localhost:81)      | n/a      | n/a      |
+| Nginx         | 80     | [81](http://localhost:81)       | n/a      | n/a      |
+| Zookeeper     | 2181   | 2182                            | n/a      | n/a      |
 | PostgreSQL    | 5432   | 5433                            | n/a      | n/a      |
 | CouchDB       | 5984   | [5985](http://localhost:5985)   | n/a      | n/a      |
 | Redis         | 6379   | 6380                            | n/a      | n/a      |
