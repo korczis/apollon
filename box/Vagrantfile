@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "apollo-fat-box"
   
   config.vm.network "forwarded_port", guest: 5984, host: 5985
+  config.vm.network "forwarded_port", guest: 6379, host: 6380
   config.vm.network "forwarded_port", guest: 8080, host: 8081
   config.vm.network "forwarded_port", guest: 9200, host: 9201
   config.vm.network "forwarded_port", guest: 15672, host: 15673
