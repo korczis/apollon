@@ -30,14 +30,14 @@ This lists services which are automatically forwarded from running fat box to lo
 
 That means that you can access them using [http://localhost:{HostPortNumer}](http://localhost:{HostPortNumer}) from table below.
 
-| Service       | Guest  | Host  |
-| --------------|:------:|:-----:|
-| CouchDB       | 5984   | 5985  |
-| Tomcat7       | 8080   | 8081  |
-| ElasticSearch | 9200   | 9201  |
-| RabbitMQ      | 15672  | 15673 |
-| MongoDB       | 27017  | 27018 |
-| MongoDB Rest  | 28017  | 28018 |
+| Service       | Guest  | Host                           |
+| --------------|:------:|:------------------------------:|
+| CouchDB       | 5984   | [5985](http://localhost:5985)  |
+| Tomcat7       | 8080   | [8081](http://localhost:8081)  |
+| ElasticSearch | 9200   | [9201](http://localhost:9201)  |
+| RabbitMQ      | 15672  | [8081](http://localhost:15673) |
+| MongoDB       | 27017  | [8081](http://localhost:27018) |
+| MongoDB Rest  | 28017  | [8081](http://localhost:28018) |
 
 ## Getting Started
 
