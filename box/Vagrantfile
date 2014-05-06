@@ -2,7 +2,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "apollo-fat-box"
-  config.vm.box_url = "https://s3.amazonaws.com/korczis-vagrant-boxes/apollo-fat-box-v1.box"
+  config.vm.box_url = "https://s3.amazonaws.com/korczis-vagrant-boxes/apollo-fat-box-v3.box"
   
   config.vm.hostname = "apollo-fat-box"
   
