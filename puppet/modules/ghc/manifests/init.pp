@@ -3,9 +3,9 @@
 # Installs Haskell.
 #
 class ghc {
-	require core
-	
-	package { 'ghc':
-		ensure => present;
-	}
+  require core
+
+  package { 'ghc':
+    ensure => present;
+  }
 }

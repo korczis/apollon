@@ -1,11 +1,11 @@
 # == Class: llvm
 #
-# Installs Haskell.
+# Installs llvm.
 #
 class llvm {
-	require core
-	
-	package { 'llvm':
-		ensure => present;
-	}
+  require core
+
+  package { 'llvm':
+    ensure => present;
+  }
 }

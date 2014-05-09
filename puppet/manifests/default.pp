@@ -1,4 +1,4 @@
 node default {
-	include core, ops, dev, db::all, web::all
-	# include web::all
+  include core, db::all, dev, ops, science, web::all
+  # include web::all
 }
