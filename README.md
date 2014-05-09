@@ -1,4 +1,4 @@
-apollo-uber-box
-===============
+apollo-pandoras-box
+===================
 
-Big, fat box containing almost all tools and libs for data science
+Vagrant box containing lot of tools and libs for data science
