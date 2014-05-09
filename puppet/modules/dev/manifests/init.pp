@@ -8,4 +8,6 @@ class dev {
 	include llvm
 	include nodejs
 	include python
+	include ruby
+	# include rvm
 }
