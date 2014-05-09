@@ -60,7 +60,7 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 git clone https://github.com/korczis/apollo-fat-box.git
 
 # Enter the folder with Vagrantfile, be aware of trailing box folder in path!
-cd apollo-fat-box/box
+cd apollo-fat-box
 
 # Kick off the vagrant up process
 vagrant up
