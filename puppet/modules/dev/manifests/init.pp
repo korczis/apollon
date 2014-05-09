@@ -3,7 +3,9 @@
 # Installs development packages
 #
 class dev {
-	require core
-	
+	include ghc
 	include git
+	include llvm
+	include nodejs
+	include python
 }
