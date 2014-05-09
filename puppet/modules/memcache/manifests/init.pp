@@ -3,6 +3,8 @@
 # Installs Memcached and sets config file.
 #
 class memcache {
+  require core
+
   package { 'memcached':
     ensure => present;
   }

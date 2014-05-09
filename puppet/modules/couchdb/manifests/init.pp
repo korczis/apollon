@@ -3,6 +3,8 @@
 # Installs CouchDB.
 #
 class couchdb {
+  require core
+
   package { 'couchdb':
     ensure => present;
   }

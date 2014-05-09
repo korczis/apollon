@@ -3,6 +3,8 @@
 # Installs MongoDB and sets config file.
 #
 class mongodb {
+  require core
+
   package { 'mongodb':
     ensure => present;
   }
