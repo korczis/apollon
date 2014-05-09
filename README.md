@@ -1,6 +1,6 @@
 # apollo-fat-box
 
-Big, fat and heavy-weight vagrant box containing lot of tools and libs for data science.
+Vagrant box containing lot of tools and libs for data science
 
 ## About
 
