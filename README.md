@@ -33,7 +33,8 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 | Service       | Guest  | Host                            | Username | Password |
 | --------------|:------:|:-------------------------------:|:--------:|:--------:|
 | SSH           | 22     | [2222](ssh://localhost:2222)    | vagrant  | vagrant  |
-| Nginx         | 80     | [81](ssh://localhost:81)        | n/a      | n/a      |
+| Nginx         | 80     | [81](http://localhost:81)       | n/a      | n/a      |
+| Zookeeper     | 2181   | 2182                            | n/a      | n/a      |
 | PostgreSQL    | 5432   | 5433                            | n/a      | n/a      |
 | CouchDB       | 5984   | [5985](http://localhost:5985)   | n/a      | n/a      |
 | Redis         | 6379   | 6380                            | n/a      | n/a      |
@@ -46,12 +47,20 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ## Getting Started
 
+### Prerequisites
+
+- Ruby
+- Ruby gems
+- Vagrant
+
+### Installation
+
 ```
 # Clone this repo containging Vagrantfile with vagrant settings
-git clone https://github.com/korczis/apollo-uber-box.git
+git clone https://github.com/korczis/apollo-fat-box.git
 
 # Enter the folder with Vagrantfile, be aware of trailing box folder in path!
-cd apollo-uber-box/box
+cd apollo-fat-box/box
 
 # Kick off the vagrant up process
 vagrant up

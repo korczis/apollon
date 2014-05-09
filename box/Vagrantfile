@@ -9,6 +9,9 @@ Vagrant.configure("2") do |config|
   # Nginx
   config.vm.network "forwarded_port", guest: 80, host: 81
   
+  # Zookeeper
+  config.vm.network "forwarded_port", guest: 2181, host: 2182
+  a
   # PostgreSQL
   config.vm.network "forwarded_port", guest: 5432, host: 5433
   
