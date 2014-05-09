@@ -9,20 +9,20 @@ What is this heavy-weight box for? For super-quick prototyping.
 Yes. You know what.
 
 1. You got an idea. You want to immediately start working on it. 
-2. You realize you need to setup development envrionment with all the tools and stuff.
+2. You realize you need to setup development environment with all the tools and stuff.
 
 That is what this fat boy is here for.
 It can be made up and running with [few commands](https://github.com/korczis/apollo-fat-box#getting-started).
 
 ## What is included
 
-Lot of usefull stuff, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-uber-box/blob/master/WHATS_IN.md)
+Lot of useful stuff, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-fat-box/blob/master/WHATS_IN.md)
 
 - Databases - couchdb, memcached, mongodb, postgresql, redis, ...
 - Programming Languages - c, c++, clojure, node.js, ruby/rvm, scala, ...
 - Tools - mocha, ...
 
-Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-uber-box/blob/master/WHATS_IN.md)
+Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-fat-box/blob/master/WHATS_IN.md)
 
 ## Automagically forwarded services
 
@@ -84,7 +84,7 @@ vagrant destroy
 
 ## TODO
 
-For list of TODO stuff see [TODO.md](https://github.com/korczis/apollo-uber-box/blob/master/TODO.md)
+For list of TODO stuff see [TODO.md](https://github.com/korczis/apollo-fat-box/blob/master/TODO.md)
 
 ## Credits
 
