@@ -4,6 +4,7 @@
 #
 class db::all {
   include couchdb
+  include elasticsearch
   include memcache
   include mongodb
   include postgresql
