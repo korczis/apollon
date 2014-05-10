@@ -3,9 +3,9 @@
 # Installs Git tools.
 #
 class git {
-	require core
-	
-	package { 'git':
-		ensure => present;
-	}
+  require core
+
+  package { 'git':
+    ensure => present;
+  }
 }
