@@ -10,6 +10,7 @@ class tomcat7 {
   }
 
   package { 'tomcat7-admin':
-    ensure => present;
+    ensure => present,
+    require => Package['tomcat7'];
   }
 }
