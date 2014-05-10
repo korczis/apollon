@@ -4,6 +4,7 @@
 #
 class tomcat7 {
   require core
+  require java
 
   package { 'tomcat7':
     ensure => present;
