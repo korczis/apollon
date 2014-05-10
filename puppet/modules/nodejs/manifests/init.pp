@@ -3,13 +3,13 @@
 # Installs nodejs.
 #
 class nodejs {
-	require core
-	
-	package { 'nodejs':
-		ensure => present;
-	}
+  require core
 
-	package { 'nodejs-legacy':
-		ensure => present;
-	}
+  package { 'nodejs':
+    ensure => present;
+  }
+
+  package { 'nodejs-legacy':
+    ensure => present;
+  }
 }
