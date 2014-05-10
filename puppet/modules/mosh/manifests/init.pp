@@ -3,9 +3,9 @@
 # Installs mosh package
 #
 class mosh {
-	require core
+  require core
 
-	package { 'mosh': 
-		ensure => present;
-	}
+  package { 'mosh':
+    ensure => present;
+  }
 }
