@@ -8,6 +8,7 @@ class dev {
   include erlang
   include ghc
   include git
+  include golang
   include java
   include llvm
   include llvm
