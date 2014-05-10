@@ -3,9 +3,9 @@
 # Installs htop package
 #
 class htop {
-	require core
-	
-	package { 'htop': 
-		ensure => present;
-	}
+  require core
+
+  package { 'htop':
+    ensure => present;
+  }
 }
