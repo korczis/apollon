@@ -3,9 +3,9 @@
 # Installs mc package
 #
 class mc {
-	require core
-	
-	package { 'mc': 
-		ensure => present;
-	}
+  require core
+
+  package { 'mc':
+    ensure => present;
+  }
 }
