@@ -3,9 +3,9 @@
 # Installs Python.
 #
 class python {
-	require core
-	
-	package { 'python':
-		ensure => present;
-	}
+  require core
+
+  package { 'python':
+    ensure => present;
+  }
 }
