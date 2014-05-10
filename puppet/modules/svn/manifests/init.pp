@@ -3,9 +3,9 @@
 # Installs Subversion tools.
 #
 class svn {
-	require core
-	
-	package { 'svn':
-		ensure => present;
-	}
+  require core
+
+  package { 'svn':
+    ensure => present;
+  }
 }
