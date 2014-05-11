@@ -10,7 +10,7 @@ PROFILES_DIR = File.join(VAGRANT_DIR, 'profiles')
 DEFAULT_PROFILE_PATH = File.join(PROFILES_DIR, 'default.json')
 
 # Load default profile
-nodes  = MultiJson::load(File.new(DEFAULT_PROFILE_PATH))
+nodes = MultiJson::load(File.new(DEFAULT_PROFILE_PATH))
 
 # Iterate all configurations form loaded file
 Vagrant.configure("2") do |config|
@@ -32,15 +32,23 @@ Vagrant.configure("2") do |config|
         provider.customize ['modifyvm', :id, '--cpuexecutioncap', '85']
       end
 
-      node.vm.provision :puppet do |puppet|
-        # Path to manifests folder
-        puppet.manifests_path = 'puppet/manifests'
+      provisions = node_def['provisions'] || []
+      provisions.each do |provision|
+        if provision['name'] === 'puppet'
+          node.vm.provision :puppet do |puppet|
+            # Path to manifests folder
+            val = provision['manifests_path']
+            puppet.manifests_path = val if val
 
-        # Name of manifest used
-        puppet.manifest_file = 'all.pp'
+            # Name of manifest used
+            val = provision['manifest_file']
+            puppet.manifest_file = val if val
 
-        # Folder where are puppet modules stored
-        puppet.module_path = 'puppet/modules'
+            # Folder where are puppet modules stored
+            val = provision['module_path']
+            puppet.module_path = val if val
+          end
+        end
       end
     end
   end
