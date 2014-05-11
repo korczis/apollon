@@ -15,6 +15,9 @@ GEM
     librarian-puppet (1.0.1)
       json
       librarian (>= 0.1.2)
+    multi_json (1.10.0)
+    prettyprint (0.0.1)
+      thor
     puppet (3.5.1)
       facter (> 1.6, < 3)
       hiera (~> 1.0)
@@ -27,5 +30,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  json_pure
   librarian-puppet
+  multi_json
+  prettyprint
   puppet

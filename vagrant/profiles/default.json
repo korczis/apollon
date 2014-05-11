@@ -1,0 +1,31 @@
+[
+    {
+        "hostname": "apollo-fat-box",
+        "box": "ubuntu-14.04-amd64",
+        "box_url": "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box",
+        "network": {
+            "ports": [
+                {
+                    "guest": 5984,
+                    "host": 5985
+                },
+                {
+                    "guest": 9200,
+                    "host": 9201
+                },
+                {
+                    "guest": 11211,
+                    "host": 11212
+                },
+                {
+                    "guest": 27017,
+                    "host": 27018
+                },
+                {
+                    "guest": 28017,
+                    "host": 28018
+                }
+            ]
+        }
+    }
+]
