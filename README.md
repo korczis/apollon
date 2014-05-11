@@ -2,6 +2,10 @@
 
 Vagrant box containing lot of tools and libs for data science
 
+## Status
+
+][![Code Climate](https://codeclimate.com/github/korczis/apollo-fat-box.png)](https://codeclimate.com/github/korczis/apollo-fat-box)
+
 ## About
 
 What is this heavy-weight box for? For super-quick prototyping. 
