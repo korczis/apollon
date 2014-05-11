@@ -1,3 +1,3 @@
 node default {
-  include core
+  include dev
 }

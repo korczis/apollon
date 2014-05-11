@@ -3,8 +3,6 @@
 require 'pp'
 require 'multi_json'
 
-domain = 'local-domain.net'
-
 # Construct path to default apollo-fat-box profile
 BASE_DIR = File.expand_path(File.dirname(__FILE__))
 VAGRANT_DIR = File.join(BASE_DIR, 'vagrant')
@@ -39,13 +37,10 @@ Vagrant.configure("2") do |config|
         puppet.manifests_path = 'puppet/manifests'
 
         # Name of manifest used
-        puppet.manifest_file = 'default.pp'
+        puppet.manifest_file = 'all.pp'
 
         # Folder where are puppet modules stored
         puppet.module_path = 'puppet/modules'
-
-        # You can specify/override node name from puppet/manifests/default.pp here
-        # puppet.puppet_node = 'all'
       end
     end
   end
