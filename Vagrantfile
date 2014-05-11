@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
 
       # Specify and customize virtualization provider
       node.vm.provider 'virtualbox' do |provider|
-        provider.customize ['modifyvm', :id, '--memory', 512]
+        provider.customize ['modifyvm', :id, '--memory', 2048]
         provider.customize ['modifyvm', :id, '--cpuexecutioncap', '85']
       end
 
