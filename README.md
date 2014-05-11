@@ -66,6 +66,8 @@ cd apollo-fat-box
 vagrant up
 ```
 
+Example output of succesful launch can be found [here](https://gist.github.com/korczis/4789d566361b095f2e73).
+
 ## Logging in
 
 For loggining-in use vagrant ssh.
