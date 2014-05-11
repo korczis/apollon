@@ -12,7 +12,9 @@ VAGRANT_DIR = File.join(BASE_DIR, 'vagrant')
 
 PROFILES_DIR = File.join(VAGRANT_DIR, 'profiles')
 
-DEFAULT_PROFILE_PATH = File.join(PROFILES_DIR, 'default.json')
+DEFAULT_PROFILE_FILE = 'default.json'
+
+DEFAULT_PROFILE_PATH = File.join(PROFILES_DIR, DEFAULT_PROFILE_FILE)
 
 # Load default profile
 nodes = MultiJson::load(File.new(DEFAULT_PROFILE_PATH))
