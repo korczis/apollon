@@ -6,11 +6,11 @@ class java {
   require core
 
   # Copy script which bypass java EULA
-  file { '/home/vagrant/hack-java-license.sh':
+  file { '/home/vagrant/accept-java-license.sh':
     owner => vagrant,
     group => vagrant,
     mode => 0755,
-    source  => 'puppet:///modules/java/hack-java-license.sh';
+    source  => 'puppet:///modules/java/accept-java-license.sh';
   }
 
   # Copy script for installing java 7
@@ -30,15 +30,15 @@ class java {
   }
 
   # Run script for bypassing java EULA
-  exec { "hack-java-license":
-    require => File['/home/vagrant/hack-java-license.sh'],
-    command => "/home/vagrant/hack-java-license.sh"
+  exec { "accept-java-license":
+    require => File['/home/vagrant/accept-java-license.sh'],
+    command => "/home/vagrant/accept-java-license.sh"
   }
 
   # Install Oracle Java 7 Installer
   # exec { "oracle-java7-install-script":
   #   require => [
-  #     Exec['hack-java-license'],
+  #     Exec['accept-java-license'],
   #     File['/home/vagrant/install-java7.sh']
   #   ],
   #   logoutput => true,
@@ -48,7 +48,7 @@ class java {
   # Install Oracle Java 8 Installer
   # exec { "oracle-java8-install-script":
   #   require => [
-  #     Exec['hack-java-license'],
+  #     Exec['accept-java-license'],
   #     File['/home/vagrant/install-java8.sh'],
   #   ],
   #   logoutput => true,
@@ -56,12 +56,12 @@ class java {
   # }
 
   package { 'oracle-java7-installer':
-    require => Exec['hack-java-license'],
+    require => Exec['accept-java-license'],
     ensure => present,
   }
 
   package { 'oracle-java8-installer':
-    require => Exec['hack-java-license'],
+    require => Exec['accept-java-license'],
     ensure => present,
   }
 

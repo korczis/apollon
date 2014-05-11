@@ -3,10 +3,15 @@
 require 'pp'
 require 'multi_json'
 
+require_relative 'lib/lib'
+
 # Construct path to default apollo-fat-box profile
 BASE_DIR = File.expand_path(File.dirname(__FILE__))
+
 VAGRANT_DIR = File.join(BASE_DIR, 'vagrant')
+
 PROFILES_DIR = File.join(VAGRANT_DIR, 'profiles')
+
 DEFAULT_PROFILE_PATH = File.join(PROFILES_DIR, 'default.json')
 
 # Load default profile
@@ -15,7 +20,9 @@ nodes = MultiJson::load(File.new(DEFAULT_PROFILE_PATH))
 # Iterate all configurations form loaded file
 Vagrant.configure("2") do |config|
   nodes.each do |node_def|
-    config.vm.define node_def['hostname'] do |node|
+    node_name = node_def['hostname'] || 'apollo-fat-node'
+
+    config.vm.define node_name do |node|
       node.vm.box = node_def['box']
       node.vm.box_url = node_def['box_url']
 
