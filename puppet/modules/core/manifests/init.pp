@@ -13,7 +13,12 @@ class core {
     ensure => "directory",
   }
 
+  exec { "update-certs":
+    command => "/usr/bin/apt-get install --reinstall ca-certificates",
+  }
+
   exec { "add-webupd8team-java-ppa":
+    require => Exec['update-certs'],
     command => "/usr/bin/add-apt-repository ppa:webupd8team/java",
   }
 
