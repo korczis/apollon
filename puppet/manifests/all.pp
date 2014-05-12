@@ -5,4 +5,5 @@ node default {
   include rabbitmq
   include science
   include web::all
+  include zookeeper
 }
