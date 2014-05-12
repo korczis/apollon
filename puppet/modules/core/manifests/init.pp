@@ -19,8 +19,15 @@ class core {
     source  => 'puppet:///modules/core/sources.list';
   }
 
+  exec { "update-sources": 
+    require => [
+      File['/etc/apt/sources.list']
+    ],
+    command => "/usr/bin/apt-get update",  
+  }
+
   exec { "update-certs":
-    require => File['/etc/apt/sources.list'],
+    require => Exec['update-sources'],
     command => "/usr/bin/apt-get install --reinstall ca-certificates",
   }
 
@@ -32,7 +39,7 @@ class core {
   exec { "apt-update":
     require => [
       Exec['add-webupd8team-java-ppa'],
-      File['/etc/apt/sources.list']
+      Exec['update-sources']
     ],
     command => "/usr/bin/apt-get update",
   }
