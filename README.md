@@ -39,7 +39,7 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 | SSH           | 22     | [2222](ssh://localhost:2222)    | vagrant  | vagrant  |
 | Nginx         | 80     | [81](http://localhost:81)       | n/a      | n/a      |
 | Zookeeper     | 2181   | 2182                            | n/a      | n/a      |
-| PostgreSQL    | 5432   | 5433                            | n/a      | n/a      |
+| PostgreSQL    | 5432   | 5433                            | vagrant  | vagrant  |
 | CouchDB       | 5984   | [5985](http://localhost:5985)   | n/a      | n/a      |
 | Redis         | 6379   | 6380                            | n/a      | n/a      |
 | Tomcat7       | 8080   | [8081](http://localhost:8081)   | vagrant  | vagrant  |
@@ -53,9 +53,11 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ### Prerequisites
 
-- Ruby
-- Ruby gems
-- Vagrant
+- [Ruby](https://www.ruby-lang.org/en/)
+- [Ruby gems](https://rubygems.org/pages/download)
+- [Bundler](http://bundler.io/)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
 ### Installation
 
