@@ -13,7 +13,14 @@ class core {
     ensure => "directory",
   }
 
+  file { "/etc/apt/sources.list":
+    owner => root,
+    group => root,
+    source  => 'puppet:///modules/core/sources.list';
+  }
+
   exec { "update-certs":
+    require => File['/etc/apt/sources.list'],
     command => "/usr/bin/apt-get install --reinstall ca-certificates",
   }
 
@@ -23,7 +30,10 @@ class core {
   }
 
   exec { "apt-update":
-    require => Exec['add-webupd8team-java-ppa'],
+    require => [
+      Exec['add-webupd8team-java-ppa'],
+      File['/etc/apt/sources.list']
+    ],
     command => "/usr/bin/apt-get update",
   }
 
