@@ -9,19 +9,6 @@ class postgresql {
     ensure => present;
   }
 
-  service { 'postgresql':
-    ensure  => running,
-    require => [
-      Package['postgresql'],
-      File['/etc/postgresql/9.3/main/environment'],
-      File['/etc/postgresql/9.3/main/pg_ctl.conf'],
-      File['/etc/postgresql/9.3/main/pg_hba.conf'],
-      File['/etc/postgresql/9.3/main/pg_ident.conf'],
-      File['/etc/postgresql/9.3/main/postgresql.conf'],
-      File['/etc/postgresql/9.3/main/start.conf'],
-    ];
-  }
-
   file { '/etc/postgresql/9.3/main/environment':
     owner => postgres,
     group => postgres,
@@ -70,5 +57,37 @@ class postgresql {
     source  => 'puppet:///modules/postgresql/9.3/main/start.conf',
     require => Package['postgresql'],
     notify  => Service['postgresql'];
+  }
+
+  service { 'postgresql':
+    ensure  => running,
+    require => [
+      Package['postgresql'],
+      File['/etc/postgresql/9.3/main/environment'],
+      File['/etc/postgresql/9.3/main/pg_ctl.conf'],
+      File['/etc/postgresql/9.3/main/pg_hba.conf'],
+      File['/etc/postgresql/9.3/main/pg_ident.conf'],
+      File['/etc/postgresql/9.3/main/postgresql.conf'],
+      File['/etc/postgresql/9.3/main/start.conf'],
+    ];
+  }
+
+  file { '/home/vagrant/scripts/create-postgresql-user.sh':
+    owner => postgres,
+    group => postgres,
+    mode => 0755,
+    source  => 'puppet:///modules/postgresql/create-postgresql-user.sh',
+    require => Package['postgresql']
+  }
+
+  exec { 'add-vagrant-postgresql-user':
+    user => 'postgres',
+    require => Service['postgresql'],
+    command => '/home/vagrant/scripts/create-postgresql-user.sh'
+  }
+
+  exec { 'restart-postgresql-after-adding-vagrant-user':
+    require => Exec['add-vagrant-postgresql-user'],
+    command => '/usr/sbin/service postgresql restart'
   }
 }
