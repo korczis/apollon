@@ -28,6 +28,8 @@ Vagrant.configure("2") do |config|
       node.vm.box = node_def['box']
       node.vm.box_url = node_def['box_url']
 
+      node.vm.boot_timeout = 300
+
       ports = node_def['network']['ports'] || []
       ports.each do |port|
         guest_port = port['guest']
