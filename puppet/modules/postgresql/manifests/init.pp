@@ -9,6 +9,10 @@ class postgresql {
     ensure => present;
   }
 
+  package { 'postgresql-9.3-postgis-scripts':
+    ensure => present;
+  }
+
   file { '/etc/postgresql/9.3/main/environment':
     owner => postgres,
     group => postgres,
@@ -63,6 +67,7 @@ class postgresql {
     ensure  => running,
     require => [
       Package['postgresql'],
+      Package['postgresql-9.3-postgis-scripts'],
       File['/etc/postgresql/9.3/main/environment'],
       File['/etc/postgresql/9.3/main/pg_ctl.conf'],
       File['/etc/postgresql/9.3/main/pg_hba.conf'],
