@@ -53,9 +53,11 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ### Prerequisites
 
-- Ruby
-- Ruby gems
-- Vagrant
+- [Ruby](https://www.ruby-lang.org/en/)
+- [Ruby gems](https://rubygems.org/pages/download)
+- [Bundler](http://bundler.io/)
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
 ### Installation
 
