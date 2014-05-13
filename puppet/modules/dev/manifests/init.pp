@@ -13,6 +13,7 @@ class dev {
   include llvm
   include llvm
   include nodejs
+  include php5
   include python
   include ruby
   # include rvm
