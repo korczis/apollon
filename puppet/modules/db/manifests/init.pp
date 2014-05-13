@@ -7,6 +7,7 @@ class db::all {
   include elasticsearch
   include memcache
   include mongodb
+  include mysql
   include postgresql
   include redis
 }
