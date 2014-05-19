@@ -9,6 +9,11 @@ class postgresql {
     ensure => present;
   }
 
+  package { 'postgresql-contrib':
+    require => Package['postgresql'],
+    ensure => present;
+  }
+
   package { 'postgresql-9.3-postgis-scripts':
     ensure => present;
   }
@@ -85,6 +90,29 @@ class postgresql {
     require => Package['postgresql']
   }
 
+  file { '/home/vagrant/scripts/create-extension-adminpack.sql':
+    owner => postgres,
+    group => postgres,
+    source  => 'puppet:///modules/postgresql/sql/create-extension-adminpack.sql',
+    require => Package['postgresql']
+  }
+
+  file { '/home/vagrant/scripts/create-extension-postgis.sql':
+    owner => postgres,
+    group => postgres,
+    source  => 'puppet:///modules/postgresql/sql/create-extension-postgis.sql',
+    require => Package['postgresql']
+  }
+
+  exec { 'create-extension-postgis':
+    user => 'postgres',
+    require => [
+    File['/home/vagrant/scripts/create-extension-postgis.sql'],
+    Service['postgresql']
+    ],
+    command => '/usr/bin/psql -f /home/vagrant/scripts/create-extension-postgis.sql'
+  }
+
   exec { 'add-vagrant-postgresql-user':
     user => 'postgres',
     require => Service['postgresql'],
@@ -94,5 +122,24 @@ class postgresql {
   exec { 'restart-postgresql-after-adding-vagrant-user':
     require => Exec['add-vagrant-postgresql-user'],
     command => '/usr/sbin/service postgresql restart'
+  }
+
+  exec { 'updatedb':
+    user => 'root',
+    require => [
+      Package['postgresql-contrib'],
+      Service['postgresql'],
+    ],
+    command => '/usr/bin/updatedb'
+  }
+
+  exec { 'create-extension-adminpack':
+    user => 'postgres',
+    require => [
+      File['/home/vagrant/scripts/create-extension-adminpack.sql'],
+      Service['postgresql'],
+      Exec['updatedb']
+    ],
+    command => '/usr/bin/psql -f /home/vagrant/scripts/create-extension-adminpack.sql'
   }
 }
