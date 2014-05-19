@@ -1,0 +1,17 @@
+{
+    "builders": [
+        {
+            "type": "digitalocean",
+            "client_id": "bd4f6a3982e0d09707158e07f667104d",
+            "api_key": "",
+            "region": "sfo1",
+            "image": "ubuntu-14-04-x64",
+            "size": "512mb",
+            "droplet_name": "apollo-fat-box-{{timestamp}}",
+            "ssh_port": 22,
+            "ssh_timeout": "5m",
+            "ssh_username": "root",
+            "private_networking": false
+        }
+    ]
+}

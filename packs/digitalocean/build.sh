@@ -1,0 +1,2 @@
+packer build \
+    packer.json
