@@ -42,11 +42,13 @@ class core {
       Exec['update-sources']
     ],
     command => "/usr/bin/apt-get update",
+    timeout => 3600,
   }
 
   exec { "apt-upgrade":
     require => Exec['apt-update'],
     command => "/usr/bin/apt-get upgrade -y",
+    timeout => 3600,
   }
 
   exec { "core-done":
