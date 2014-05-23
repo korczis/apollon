@@ -43,6 +43,14 @@ Vagrant.configure("2") do |config|
         provider.customize ['modifyvm', :id, '--cpuexecutioncap', '85']
       end
 
+      # config.vm.provider :digital_ocean do |provider, override|
+      #   override.ssh.private_key_path = '~/.ssh/id_rsa'
+      #   override.vm.box = 'digital_ocean'
+      #
+      #   provider.client_id = ''
+      #   provider.api_key = ''
+      # end
+
       provisions = node_def['provisions'] || []
       provisions.each do |provision|
         if provision['name'] === 'puppet'
