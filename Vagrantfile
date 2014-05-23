@@ -17,6 +17,7 @@ if File.exists?(BOX_PATH) == false
   }
 
   puts "Done."
+
 end
 
 # Construct path to default apollo-fat-box profile
@@ -42,7 +43,10 @@ Vagrant.configure("2") do |config|
       node.vm.box = node_def['box']
       node.vm.box_url = node_def['box_url']
 
-      node.vm.boot_timeout = 300
+      node.vm.boot_timeout = 1800
+
+      node.ssh.username = 'vagrant'
+      node.ssh.password = 'vagrant'
 
       ports = node_def['network']['ports'] || []
       ports.each do |port|

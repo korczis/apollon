@@ -2,7 +2,7 @@
     {
         "hostname": "apollo-fat-box-packer",
         "box": "apollo-fat-box-packer",
-        "box_url": "../../artifacts/vagrant.box",
+        "box_url": "artifacts/vagrant.box",
 
         "network": {
             "ports": [
@@ -45,7 +45,7 @@
             {
                 "name": "puppet",
                 "manifests_path": "puppet/manifests",
-                "manifest_file": "dev.pp",
+                "manifest_file": "core.pp",
                 "module_path": "puppet/modules"
             }
         ]
