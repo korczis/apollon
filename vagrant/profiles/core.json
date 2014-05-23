@@ -1,19 +1,12 @@
 [
     {
-        "hostname": "apollo-fat-box",
+        "hostname": "apollo-fat-box-packer",
         "box": "ubuntu-14.04-amd64",
-        "box_url": "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box",
+        "box_url": "../../artifacts/vagrant.box",
         "network": {
             "ports": []
         },
 
-        "provisions": [
-            {
-                "name": "puppet",
-                "manifests_path": "puppet/manifests",
-                "manifest_file": "core.pp",
-                "module_path": "puppet/modules"
-            }
-        ]
+        "provisions": []
     }
 ]
