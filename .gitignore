@@ -1,3 +1,4 @@
+*.box
 .idea/
 .vagrant/
 packer_cache/
