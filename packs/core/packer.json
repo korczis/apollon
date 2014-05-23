@@ -1,17 +1,29 @@
 {
+    "variables": {
+        "arch": "amd64",
+        "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
+
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+
+        "puppet_manifest_dir": "../../../puppet/manifests",
+        "puppet_manifest_file": "../../../puppet/manifests/all.pp",
+        "puppet_module_paths": "../../../puppet/modules"
+    },
+
     "builders": [
         {
             "type": "virtualbox-iso",
             "guest_os_type": "Ubuntu_64",
-            "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-amd64.iso",
-            "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
+            "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-{{user `arch`}}.iso",
+            "iso_checksum": "{{user `iso_checksum`}}",
             "iso_checksum_type": "md5",
-            "ssh_username": "packer",
-            "ssh_password": "packer",
-            "ssh_wait_timeout": "5m",
+            "ssh_username": "{{user `ssh_username`}}",
+            "ssh_password": "{{user `ssh_password`}}",
+            "ssh_wait_timeout": "60m",
             "boot_command": [
                 "<esc><esc><enter><wait>",
-                "/install/vmlinuz noapic <wait>",
+                "/install/vmlinuz noapic preseed/url=http://dl.dropboxusercontent.com/s/6teatka2gwz26n6/preseed.pkg?dl=1&token_hash=AAG33VL21u-_yHt5qTpQHjGvig1l7CLNlMY5PsHlwrfP1Q&expiry=1400794765 <wait>",
                 "debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
                 "hostname={{ .Name }} <wait>",
                 "fb=false debconf/frontend=noninteractive <wait>",
@@ -19,6 +31,26 @@
                 "initrd=/install/initrd.gz -- <enter><wait>"
             ],
             "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "provision.sh"
+        },
+        {
+            "type": "puppet-masterless",
+            "manifest_dir": "{{user `puppet_manifest_dir`}}",
+            "manifest_file": "{{user `puppet_manifest_file`}}",
+            "module_paths": "{{user `puppet_module_paths`}}"
+        }
+    ],
+
+    "post-processors": [
+        {
+            "type": "vagrant",
+            "only": ["virtualbox-iso"]
         }
     ]
 }
