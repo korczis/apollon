@@ -8,7 +8,12 @@ task :usage do
   Rake.application['tasklist'].invoke
 end
 
-task :default => [:usage]
+desc 'Prepare required vagrant dependencies on local machine'
+task :prepare do
+  exec 'vagrant plugin install vagrant-digitalocean'
+end
+
+# task :default => [:usage]
 
 if $0 == __FILE__
 	Rake.application['usage'].invoke
