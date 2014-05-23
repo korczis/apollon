@@ -1,8 +1,9 @@
 [
     {
         "hostname": "apollo-fat-box-packer",
-        "box": "ubuntu-14.04-amd64",
+        "box": "apollo-fat-box-packer",
         "box_url": "../../artifacts/vagrant.box",
+        
         "network": {
             "ports": []
         },

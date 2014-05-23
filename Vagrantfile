@@ -5,6 +5,20 @@ require 'multi_json'
 
 require_relative 'lib/lib'
 
+# Make sure that the box we need is locally available
+BOX_PATH = File.join(File.dirname(__FILE__), 'artifacts', 'vagrant.box')
+CORE_PACKER_FOLDER = File.join(File.dirname(__FILE__), 'packs', 'core', 'pack.sh')
+
+if File.exists?(BOX_PATH) == false
+  puts "Locally built vagrant.box does not exists. Creating ..."
+
+  Dir.chdir(File.dirname(CORE_PACKER_FOLDER)) {
+    system CORE_PACKER_FOLDER
+  }
+
+  puts "Done."
+end
+
 # Construct path to default apollo-fat-box profile
 BASE_DIR = File.expand_path(File.dirname(__FILE__))
 

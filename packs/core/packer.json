@@ -6,11 +6,11 @@
         "ssh_username": "vagrant",
         "ssh_password": "vagrant",
 
-        "puppet_manifest_dir": "../../../puppet/manifests",
-        "puppet_manifest_file": "../../../puppet/manifests/core.pp",
-        "puppet_module_paths": "../../../puppet/modules",
+        "puppet_manifest_dir": "../../puppet/manifests",
+        "puppet_manifest_file": "../../puppet/manifests/core.pp",
+        "puppet_module_paths": "../../puppet/modules",
 
-        "vagrant_output": "../../../artifacts/vagrant.box"
+        "vagrant_output": "../../artifacts/vagrant.box"
     },
 
     "builders": [
@@ -45,16 +45,15 @@
             "type": "puppet-masterless",
             "manifest_dir": "{{user `puppet_manifest_dir`}}",
             "manifest_file": "{{user `puppet_manifest_file`}}",
-            "module_paths": "{{user `puppet_module_paths`}}",
-
-            "output": "{{user `vagrant_output`}}"
+            "module_paths": "{{user `puppet_module_paths`}}"
         }
     ],
 
     "post-processors": [
         {
             "type": "vagrant",
-            "only": ["virtualbox-iso"]
+            "only": ["virtualbox-iso"],
+            "output": "{{user `vagrant_output`}}"
         }
     ]
 }
