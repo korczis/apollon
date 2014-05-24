@@ -6,8 +6,11 @@
         "ssh_username": "vagrant",
         "ssh_password": "vagrant",
 
+        "digitalocean_id": "",
+        "digitalocean_api_key": "",
+
         "puppet_manifest_dir": "../../puppet/manifests",
-        "puppet_manifest_file": "../../puppet/manifests/core.pp",
+        "puppet_manifest_file": "../../puppet/manifests/dev.pp",
         "puppet_module_paths": "../../puppet/modules",
 
         "vagrant_output": "../../artifacts/vagrant.box"
@@ -33,6 +36,20 @@
                 "initrd=/install/initrd.gz -- <enter><wait>"
             ],
             "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+        },
+        {
+            "type": "digitalocean",
+            "client_id": "{{user `digitalocean_id`}}",
+            "api_key": "{{user `digitalocean_api_key`}}",
+            "region": "sfo1",
+            "image": "ubuntu-14-04-x64",
+            "size": "2gb",
+            "droplet_name": "apollo-fat-box-{{timestamp}}",
+            "snapshot_name": "apollo-fat-box-{{timestamp}}",
+            "ssh_port": 22,
+            "ssh_timeout": "5m",
+            "ssh_username": "root",
+            "private_networking": false
         }
     ],
 
@@ -40,6 +57,18 @@
         {
             "type": "shell",
             "script": "provision.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/provision-digitalocean.sh",
+            "only": ["digitalocean"]
+        },
+        {
+            "type": "puppet-masterless",
+            "only": ["digitalocean"],
+            "manifest_dir": "{{user `puppet_manifest_dir`}}",
+            "manifest_file": "{{user `puppet_manifest_file`}}",
+            "module_paths": "{{user `puppet_module_paths`}}"
         }
     ],
 
