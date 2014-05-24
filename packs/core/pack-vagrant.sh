@@ -10,6 +10,7 @@ if [ ${MACHINE_TYPE} == 'x86_64' ]; then
 fi
 
 packer build \
+    -only=virtualbox-iso \
     -var "arch=$ARCH" \
     -var "iso_checksum=$ISO_CHECKSUM" \
     packer.json
