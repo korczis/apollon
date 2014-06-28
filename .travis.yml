@@ -7,7 +7,11 @@ rvm:
   - rbx-2.2.9
 
 before_install:
+  - echo "Installing puppet"
+  - sudo apt-get install puppet -yy
+  - echo "Updating rubygems"
   - gem update --system
+  - echo "Updating bundler"
   - gem update bundler
   - echo "Installing packer.io"
   - mkdir packer
