@@ -13,8 +13,8 @@ before_install:
   - mkdir packer
   - cd packer
   - sudo apt-get install unzip
-  - wget https://dl.bintray.com/mitchellh/packer/0.3.6_linux_386.zip
-  - sudo unzip 0.3.6_linux_386.zip
+  - wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_386.zip
+  - sudo unzip 0.6.0_linux_386.zip
   - export PATH=$PATH:`pwd`
   - packer -v
   - cd ..
