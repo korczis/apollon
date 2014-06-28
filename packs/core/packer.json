@@ -10,7 +10,7 @@
         "digitalocean_api_key": "",
 
         "puppet_manifest_dir": "../../puppet/manifests",
-        "puppet_manifest_file": "../../puppet/manifests/dev.pp",
+        "puppet_manifest_file": "../../puppet/manifests/web.pp",
         "puppet_module_paths": "../../puppet/modules",
 
         "vagrant_output": "../../artifacts/vagrant.box"

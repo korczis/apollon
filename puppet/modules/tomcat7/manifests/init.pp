@@ -14,4 +14,11 @@ class tomcat7 {
     ensure => present,
     require => Package['tomcat7'];
   }
+
+  file { "/etc/tomcat7/tomcat-users.xml":
+    require => Package['tomcat7-admin'];
+    owner => root,
+    group => tomcat7,
+    source  => 'puppet:///modules/tomcat7/tomcat-users.xml';
+  }
 }

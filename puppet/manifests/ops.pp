@@ -1,3 +1,3 @@
 node default {
-  include ops
+  include ops::all
 }

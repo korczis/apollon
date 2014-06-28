@@ -3,7 +3,7 @@
 #
 # Installs usefull tools for operators (humans) of box
 #
-class ops {
+class ops::all {
   include htop
   include links
   include lynx

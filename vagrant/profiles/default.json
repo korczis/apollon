@@ -45,7 +45,7 @@
             {
                 "name": "puppet",
                 "manifests_path": "puppet/manifests",
-                "manifest_file": "core.pp",
+                "manifest_file": "all.pp",
                 "module_path": "puppet/modules"
             }
         ]

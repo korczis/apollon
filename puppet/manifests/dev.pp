@@ -1,3 +1,3 @@
 node default {
-  include dev
+  include dev::all
 }

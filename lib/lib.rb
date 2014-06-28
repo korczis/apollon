@@ -2,6 +2,7 @@
 
 require 'pathname'
 
+require_relative 'app/app'
 require_relative 'provisions/provisions'
 
 base = Pathname(__FILE__).dirname.expand_path

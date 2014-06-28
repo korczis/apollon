@@ -21,9 +21,10 @@ class core {
 
   exec { "update-sources": 
     require => [
-      File['/etc/apt/sources.list']
+      File['/etc/apt/sources.list'],
     ],
     command => "/usr/bin/apt-get update",  
+    timeout => 3600,
   }
 
   exec { "update-certs":
@@ -55,7 +56,7 @@ class core {
     require => [
       Exec['apt-upgrade'],
       File['/home/vagrant/tmp'],
-      File['/home/vagrant/scripts']
+      File['/home/vagrant/scripts'],
     ],
     command => "/bin/echo Core Init done",
   }

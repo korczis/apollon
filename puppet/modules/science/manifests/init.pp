@@ -2,7 +2,7 @@
 #
 # Installs scientific tools.
 #
-class science {
+class science::all {
   include octave
   include r
 }
