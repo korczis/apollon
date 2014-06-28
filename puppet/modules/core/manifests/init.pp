@@ -23,7 +23,7 @@ class core {
     require => [
       File['/etc/apt/sources.list'],
     ],
-    command => "/usr/bin/apt-get update",  
+    command => "/usr/bin/apt-get update -yy",
     timeout => 3600,
   }
 
@@ -42,13 +42,13 @@ class core {
       Exec['add-webupd8team-java-ppa'],
       Exec['update-sources']
     ],
-    command => "/usr/bin/apt-get update",
+    command => "/usr/bin/apt-get update -yy",
     timeout => 3600,
   }
 
   exec { "apt-upgrade":
     require => Exec['apt-update'],
-    command => "/usr/bin/apt-get upgrade -y",
+    command => "/usr/bin/apt-get upgrade  -y --force-yes -qq",
     timeout => 3600,
   }
 
