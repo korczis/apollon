@@ -48,7 +48,7 @@ class core {
 
   exec { "apt-upgrade":
     require => Exec['apt-update'],
-    command => "/usr/bin/apt-get upgrade  -y --force-yes -qq",
+    command => "/usr/bin/apt-get upgrade -yy --force-yes -qq",
     timeout => 3600,
   }
 
