@@ -23,7 +23,7 @@ class core {
     require => [
       File['/etc/apt/sources.list'],
     ],
-    command => "/usr/bin/apt-get update -yy",
+    command => "/usr/bin/apt-get update -q -yy",
     timeout => 3600,
   }
 
