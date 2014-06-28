@@ -18,7 +18,7 @@ before_install:
   - echo "Installing packer.io"
   - mkdir packer
   - cd packer
-  - sudo apt-get install unzip
+  - sudo apt-get install unzip -yy
   - wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_386.zip
   - sudo unzip 0.6.0_linux_386.zip
   - export PATH=$PATH:`pwd`
