@@ -33,6 +33,11 @@ namespace :test do
     t.pattern = 'spec/unit/**/*.rb'
   end
 
+  desc "Run coding style tests"
+  RSpec::Core::RakeTask.new(:cop) do |t|
+    Rake::Task['cop'].invoke
+  end
+
   task :all => [:unit, :cop]
 end
 
