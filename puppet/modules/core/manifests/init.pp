@@ -29,7 +29,7 @@ class core {
 
   exec { "update-certs":
     require => Exec['update-sources'],
-    command => "/usr/bin/apt-get install --reinstall ca-certificates",
+    command => "/usr/bin/apt-get install -q -yy --reinstall ca-certificates",
   }
 
   exec { "add-webupd8team-java-ppa":

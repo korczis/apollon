@@ -6,4 +6,4 @@ echo "Basic provisioning using bash script is happening right now ..."
 # cd /mnt
 # sudo ./VBoxLinuxAdditions.run
 
-sudo apt-get install puppet -y
+sudo apt-get install puppet  -q -yy
