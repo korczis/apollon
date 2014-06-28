@@ -8,6 +8,7 @@ rvm:
 
 before_install:
   - echo "Installing puppet"
+  - sudo apt-get install unzip -q -yy
   - sudo apt-get install puppet -q -yy
   - echo "Running puppet"
   - # sudo puppet apply --modulepath="puppet/modules" puppet/manifests/core.pp
@@ -18,7 +19,6 @@ before_install:
   - echo "Installing packer.io"
   - mkdir packer
   - cd packer
-  - sudo apt-get install unzip -q -yy
   - wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_386.zip
   - sudo unzip 0.6.0_linux_386.zip
   - export PATH=$PATH:`pwd`
