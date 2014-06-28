@@ -16,13 +16,13 @@ before_install:
   - gem update --system
   - echo "Updating bundler"
   - gem update bundler
-  - # echo "Installing packer.io"
-  - # mkdir packer
-  - # cd packer
-  - # wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_386.zip
-  - # sudo unzip 0.6.0_linux_386.zip
-  - # export PATH=$PATH:`pwd`
-  - # packer -v
-  - # cd ..
+  - echo "Installing packer.io - TODO: transform to puppet!!!"
+  - mkdir packer
+  - cd packer
+  - wget https://dl.bintray.com/mitchellh/packer/0.6.0_linux_386.zip
+  - sudo unzip 0.6.0_linux_386.zip
+  - export PATH=$PATH:`pwd`
+  - packer -v
+  - cd ..
   
 script: rake ci
