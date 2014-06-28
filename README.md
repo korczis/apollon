@@ -8,7 +8,7 @@ Vagrant box containing lot of tools and libs for data science
 [![Dependency Status](https://gemnasium.com/korczis/apollon.png)](https://gemnasium.com/korczis/apollon)
 [![Code Climate](https://codeclimate.com/github/korczis/apollon.png)](https://codeclimate.com/github/korczis/apollon)
 [![Build Status](https://travis-ci.org/korczis/apollon.png)](https://travis-ci.org/korczis/apollon)
-[![Coverage Status](https://coveralls.io/repos/korczis/apollon/badge.png)](https://coveralls.io/r/korczis/apollon)
+[![Coverage Status](https://coveralls.io/repos/korczis/apollon/badge.png?branch=master)](https://coveralls.io/r/korczis/apollon?branch=master)
 
 ## About
 
