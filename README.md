@@ -1,4 +1,4 @@
-# apollo-fat-box
+# apollon
 
 Vagrant box containing lot of tools and libs for data science
 
@@ -20,17 +20,17 @@ Yes. You know what.
 2. You realize you need to setup development environment with all the tools and stuff.
 
 That is what this fat boy is here for.
-It can be made up and running with [few commands](https://github.com/korczis/apollo-fat-box#getting-started).
+It can be made up and running with [few commands](https://github.com/korczis/apollon#getting-started).
 
 ## What is included
 
-Lot of useful stuff, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-fat-box/blob/master/WHATS_IN.md)
+Lot of useful stuff, for full list see [WHATS_IN.md](https://github.com/korczis/apollon/blob/master/WHATS_IN.md)
 
 - Databases - couchdb, memcached, mongodb, postgresql, redis, ...
 - Programming Languages - c, c++, clojure, node.js, ruby/rvm, scala, ...
 - Tools - mocha, ...
 
-Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollo-fat-box/blob/master/WHATS_IN.md)
+Again, for full list see [WHATS_IN.md](https://github.com/korczis/apollon/blob/master/WHATS_IN.md)
 
 ## Automagically forwarded services
 
@@ -67,10 +67,10 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ```
 # Clone this repo containging Vagrantfile with vagrant settings
-git clone https://github.com/korczis/apollo-fat-box.git
+git clone https://github.com/korczis/apollon.git
 
 # Enter the folder with Vagrantfile, be aware of trailing box folder in path!
-cd apollo-fat-box
+cd apollon
 
 # Kick off the vagrant up process
 vagrant up
@@ -96,7 +96,7 @@ vagrant destroy
 
 ## TODO
 
-For list of TODO stuff see [TODO.md](https://github.com/korczis/apollo-fat-box/blob/master/TODO.md)
+For list of TODO stuff see [TODO.md](https://github.com/korczis/apollon/blob/master/TODO.md)
 
 ## Credits
 
