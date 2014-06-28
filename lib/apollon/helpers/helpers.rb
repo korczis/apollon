@@ -1,10 +1,10 @@
 require 'net/http'
 require 'json'
 
-uri = URI("https://api.github.com/gists")
+uri = URI('https://api.github.com/gists')
 
 payload = {
-  'description' => "My test gist",
+  'description' => 'My test gist',
   'public' => true,
   'files' => {
     'test.txt' => {
@@ -20,7 +20,7 @@ puts req.inspect
 puts req.body.inspect
 
 # GitHub API is strictly via HTTPS, so SSL is mandatory
-res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) do |http|
+res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
   http.request(req)
 end
 

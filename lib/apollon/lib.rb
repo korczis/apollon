@@ -12,8 +12,8 @@ res = []
 Dir.glob(base + '*.rb').each do |file|
   loaded_file = require file
   res << {
-    :file => file,
-    :loaded => loaded_file,
+    file: file,
+    loaded: loaded_file
   }
 end
 
