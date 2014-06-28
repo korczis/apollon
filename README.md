@@ -97,3 +97,4 @@ For list of TODO stuff see [TODO.md](https://github.com/korczis/apollo-fat-box/b
 ## Credits
 
 - [@pavelbinar](https://github.com/pavelbinar) for QA and not just that.
+- [@thnkr](https://github.com/thnkr/) for ideas, encouragement and other.
