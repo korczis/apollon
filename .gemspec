@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     'lib/lib.rb'
   ]
-  s.homepage = 'https://github.com/korczis/apollo-fat-box'
+  s.homepage = 'https://github.com/korczis/apollon'
   s.license = 'MIT'
 
   s.require_paths = ['lib']
