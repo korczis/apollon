@@ -50,6 +50,7 @@ class core {
     require => Exec['apt-update'],
     command => "/usr/bin/apt-get upgrade -yy --force-yes -qq",
     timeout => 3600,
+    logoutput => on_failure
   }
 
   exec { "core-done":
