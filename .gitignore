@@ -1,6 +1,9 @@
 *.box
 .idea/
 .vagrant/
+
+Gemfile.lock
+
 coverage/
 packer_cache/
 
