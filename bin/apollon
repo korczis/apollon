@@ -3,4 +3,4 @@
 require_relative '../lib/apollon/lib'
 require_relative '../lib/apollon/version'
 
-puts "Apollon version #{Apollon::VERSION}"
+require_relative '../lib/apollon/cli/app'

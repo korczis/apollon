@@ -2,7 +2,7 @@
 
 require 'pathname'
 
-require_relative 'cli/cli'
+# require_relative 'cli/cli'
 require_relative 'provisions/provisions'
 
 base = Pathname(__FILE__).dirname.expand_path
