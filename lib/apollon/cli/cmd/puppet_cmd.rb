@@ -12,8 +12,7 @@ include GLI::App
 
 def print_puppet_table(data, title = '', headings = nil, base_dir = Apollon::Puppet::PUPPET_DIR)
   rows = data.each_with_index.map do |item, i|
-    rel_item = item.gsub(base_dir + '/', '').gsub(/\.pp$/, '')
-    [i, rel_item, item]
+    [i, item[:name], item[:rel], item[:path]]
   end
 
   puts Terminal::Table.new title: title,
@@ -32,7 +31,7 @@ command :puppet do |puppet|
       list.action do
         print_puppet_table(Apollon::Puppet.manifests,
                            'Puppet Manifests',
-                           %w(id Name Path),
+                           %w(id Name Relative Path),
                            Apollon::Puppet::MANIFEST_DIR)
       end
     end
@@ -47,7 +46,7 @@ command :puppet do |puppet|
       list.action do
         print_puppet_table(Apollon::Puppet.modules,
                            'Puppet Modules',
-                           %w(id Name Path),
+                           %w(id Name Relative Path),
                            Apollon::Puppet::MODULE_DIR)
       end
     end

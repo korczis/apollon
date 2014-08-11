@@ -16,7 +16,17 @@ module Apollon
 
     class << self
       def relative_files(dir, relative_dir)
-        Dir.glob(dir).map { |f| File.expand_path(f, relative_dir) }
+        Dir.glob(dir).map do |f|
+          full_path = File.expand_path(f)
+          rel_path = full_path.gsub(relative_dir + '/', '')
+          base_rel_path = full_path.gsub(BASE_DIR + '/', '')
+          name = rel_path.gsub(/\.pp$/, '').split('/')[0]
+          {
+            name: name,
+            rel: base_rel_path,
+            path: full_path
+          }
+        end
       end
 
       def manifests(dir = MANIFEST_DIR + PUPPET_MANIFEST_PATTERN)
