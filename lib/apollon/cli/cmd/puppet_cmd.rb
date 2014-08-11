@@ -10,7 +10,7 @@ require_relative '../../puppet/puppet'
 
 include GLI::App
 
-def print_puppet_table(data, title = '', headings = nil, base_dir = Apollon::Puppet::PUPPET_DIR)
+def print_puppet_table(data, title = '', headings = nil, _base_dir = Apollon::Puppet::PUPPET_DIR)
   rows = data.each_with_index.map do |item, i|
     [i, item[:name], item[:rel], item[:path]]
   end

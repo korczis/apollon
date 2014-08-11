@@ -19,11 +19,10 @@ module Apollon
         Dir.glob(dir).map do |f|
           full_path = File.expand_path(f)
           rel_path = full_path.gsub(relative_dir + '/', '')
-          base_rel_path = full_path.gsub(BASE_DIR + '/', '')
           name = rel_path.gsub(/\.pp$/, '').split('/')[0]
           {
             name: name,
-            rel: base_rel_path,
+            rel: full_path.gsub(BASE_DIR + '/', ''),
             path: full_path
           }
         end
