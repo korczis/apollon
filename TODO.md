@@ -6,10 +6,24 @@ List of stuff which needs to be be done.
 
 - LAMP Deploy (Hello World)
 - Database
-- NodeJs Applicatio
+- NodeJs Application
 - Microcrawler
 
 ## High Priority 
+
+- Generate ~/.fog
+- Create puppet manifest interactively
+- Basic Cloud interaction
+  - Listing providers
+  - Listing running instances
+  - Connecting to running instances
+  
+## Medium Priority
+
+- Instances monitoring
+  - gist.github.com
+  
+## Low Priority
 
 - Install Apache Tika
 - Install Apache Hadoop + Pig/Hive
@@ -18,12 +32,6 @@ List of stuff which needs to be be done.
 - Install Kafka
 - Install TitanDB
 - Optionally Install Emscripten
-
-## Medium Priority
-
 - Change password for all services to vagrant/vagrant
-
-## Low Priority
-
 - Better message of the day with some stats
 
