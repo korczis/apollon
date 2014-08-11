@@ -96,7 +96,7 @@ vagrant destroy
 
 ## Changelog
 
-For full changelog see [TODO.md](https://github.com/korczis/apollon/blob/master/CHANGELOG.md)
+For full changelog see [CHANGELOG.md](https://github.com/korczis/apollon/blob/master/CHANGELOG.md)
 
 ## TODO
 
