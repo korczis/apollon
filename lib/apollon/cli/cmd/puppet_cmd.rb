@@ -27,7 +27,7 @@ command :puppet do |puppet|
   puppet.command :manifest do |manifest|
     # Apply puppet manifest
     manifest.desc 'Apply puppet manifest'
-    manifest.command :apply do |apply|
+    manifest.command :apply do |_apply|
       # TODO: Implement
     end
 
