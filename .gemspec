@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'multi_json', '~> 1.10', '>= 1.10.1'
   s.add_dependency 'puppet', '~> 3.6', '>= 3.6.2'
   s.add_dependency 'rake', '~> 10.3', '>= 10.3.2'
+  s.add_dependency 'terminal-table', '~> 1.4', '>= 1.4.5'
 
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.0r'
   s.add_development_dependency 'rspec', '~> 3.0', '>= 3.0.0'

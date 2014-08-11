@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
       #   provider.api_key = ''
       # end
 
-      provisions = node_def['provisions'] || []
+      provisions = node_def['puppet'] || []
       provisions.each do |provision|
         if provision['name'] === 'puppet'
           node.vm.provision :puppet do |puppet|
