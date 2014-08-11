@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'aws-sdk-core', '~> 2.0.0.rc7'
   s.add_dependency 'digitalocean', '~> 1.1', '>= 1.1.0'
+  s.add_dependency 'fog', '~> 1.22', '>= 1.22.1'
   s.add_dependency 'gli', '~> 2.11', '>= 2.11.0'
   s.add_dependency 'json_pure', '~> 1.8', '>= 1.8.1'
   s.add_dependency 'librarian-puppet', '~> 1.1', '>= 1.1.2'
