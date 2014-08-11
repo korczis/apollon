@@ -15,7 +15,7 @@ command :instance do |c|
   c.desc 'List existing instances'
   c.command :list do |list|
     list.action do
-      data = Apollon::Instance.list.each_with_index.map do |item, i|
+      data = Apollon::Instance.list.each_with_index.map do |_item, _i|
         []
       end
 
