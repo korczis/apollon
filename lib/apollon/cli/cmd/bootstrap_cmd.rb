@@ -8,7 +8,7 @@ require_relative '../../bootstrap/boostrap'
 
 require_relative '../shared'
 
-desc 'Bootstrap Apollon Environemnt'
+desc 'Bootstrap Apollon Environment'
 command :bootstrap do |c|
   c.action do |_global_options, _options, _args|
     Apollon::Bootstrap.bootstrap
