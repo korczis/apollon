@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get install unzip -q -yy
   - sudo apt-get install puppet -q -yy
   - echo "Running puppet"
-  - sudo puppet apply -v --debug --modulepath="puppet/modules" puppet/manifests/core.pp
+  - sudo puppet apply -v --debug --modulepath="data/puppet/modules" data/puppet/manifests/core.pp
   - echo "Updating rubygems"
   - gem update --system
   - echo "Updating bundler"
