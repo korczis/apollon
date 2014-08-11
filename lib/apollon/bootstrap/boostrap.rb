@@ -11,18 +11,21 @@ module Apollon
     APOLLON_DIR = File.join(HOME_DIR, '.apollon')
 
     class << self
-      def bootstrap
+      def app_dir_exists?(dir = APOLLON_DIR)
+        File.exists?(dir)
+      end
+
+      def bootstrap(dir = APOLLON_DIR)
         puts "Bootstraping Apollon Environment - #{Apollon::VERSION}"
 
-        create_app_dir
+        unless app_dir_exists?(dir)
+          create_app_dir(dir)
+        end
       end
 
       def create_app_dir(dir = APOLLON_DIR)
-        exist = File.exists?(dir)
-        unless exist
-          puts "Creating Apollon application data directory - #{dir}"
-          Dir.mkdir(dir)
-        end
+        puts "Creating Apollon application data directory - #{dir}"
+        Dir.mkdir(dir)
       end
     end
   end
