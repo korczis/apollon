@@ -16,12 +16,12 @@ command :provider do |c|
   c.command :list do |list|
     list.action do
       data = Apollon::Provider.list.each_with_index.map do |item, i|
-        [i, item[:name], item[:path]]
+        [i, item[:name], item[:klass], item[:path]]
       end
 
       # TODO: Implement here
       puts Terminal::Table.new title: 'Provider List',
-                               headings: %w(Id Name Path),
+                               headings: %w(Id Name Class Path),
                                rows: data
     end
   end

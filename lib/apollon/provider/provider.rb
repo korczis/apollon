@@ -1,5 +1,7 @@
 # encoding: UTF-8
 
+require_relative '../extensions/string'
+
 module Apollon
   # Provider module
   module Provider
@@ -11,7 +13,8 @@ module Apollon
           name = file.gsub(base + '/', '').gsub('.rb', '')
           {
             name: name,
-            path: file
+            path: file,
+            klass: name.modulize
           }
         end
       end
