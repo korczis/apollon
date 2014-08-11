@@ -94,6 +94,10 @@ Destroy instance using vagrant destroy.
 vagrant destroy
 ```
 
+## Changelog
+
+For full changelog see [TODO.md](https://github.com/korczis/apollon/blob/master/CHANGELOG.md)
+
 ## TODO
 
 For list of TODO stuff see [TODO.md](https://github.com/korczis/apollon/blob/master/TODO.md)
