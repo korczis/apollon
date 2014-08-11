@@ -2,6 +2,13 @@
 
 List of stuff which needs to be be done.
 
+## Examples (One Click)
+
+- LAMP Deploy (Hello World)
+- Database
+- NodeJs Applicatio
+- Microcrawler
+
 ## High Priority 
 
 - Install Apache Tika
