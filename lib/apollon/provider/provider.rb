@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 module Apollon
+  # Provider module
   module Provider
     class << self
       def list

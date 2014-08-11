@@ -26,4 +26,3 @@ command :provider do |c|
     end
   end
 end
-
