@@ -4,6 +4,8 @@ require 'gli'
 require 'pp'
 require 'terminal-table'
 
+require_relative '../shared'
+
 require_relative '../../puppet/puppet'
 
 include GLI::App
@@ -14,9 +16,9 @@ def print_puppet_table(data, title = '', headings = nil, base_dir = Apollon::Pup
     [i, rel_item, item]
   end
 
-  puts Terminal::Table.new :title => title,
-                           :headings => headings,
-                           :rows => rows
+  puts Terminal::Table.new title: title,
+                           headings: headings,
+                           rows: rows
 end
 
 desc 'Puppet low-level commands'
@@ -28,7 +30,10 @@ command :puppet do |puppet|
     manifest.desc 'List puppet manifest'
     manifest.command :list do |list|
       list.action do
-        print_puppet_table(Apollon::Puppet.manifests, 'Puppet Manifests', %w(id Name Path), Apollon::Puppet::MANIFEST_DIR)
+        print_puppet_table(Apollon::Puppet.manifests,
+                           'Puppet Manifests',
+                           %w(id Name Path),
+                           Apollon::Puppet::MANIFEST_DIR)
       end
     end
   end
@@ -40,7 +45,10 @@ command :puppet do |puppet|
     modul.desc 'List puppet modules'
     modul.command :list do |list|
       list.action do
-        print_puppet_table(Apollon::Puppet.modules, 'Puppet Modules', %w(id Name Path), Apollon::Puppet::MODULE_DIR)
+        print_puppet_table(Apollon::Puppet.modules,
+                           'Puppet Modules',
+                           %w(id Name Path),
+                           Apollon::Puppet::MODULE_DIR)
       end
     end
   end

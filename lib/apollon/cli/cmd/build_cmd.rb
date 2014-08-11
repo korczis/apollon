@@ -4,6 +4,8 @@ require 'gli'
 
 include GLI::App
 
+require_relative '../shared'
+
 require_relative '../../puppet/core'
 
 desc 'Build new web-unit'
