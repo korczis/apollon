@@ -5,6 +5,7 @@ require 'pathname'
 require 'pp'
 
 require_relative 'shared'
+require_relative '../version'
 
 def launch(argv = ARGV)
   run(argv)
@@ -12,7 +13,7 @@ end
 
 include GLI::App
 
-program_desc 'Apollon CLI'
+program_desc "Apollon CLI #{Apollon::VERSION}"
 
 module Apollon
   # Apollon CLI
