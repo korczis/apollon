@@ -2,30 +2,19 @@
 
 require 'pathname'
 
+require_relative '../core'
 require_relative '../version'
 
 module Apollon
-  # Bootstrapping module
+  # Apollon bootstrap module
   module Bootstrap
-    HOME_DIR = File.expand_path('~')
-    APOLLON_DIR = File.join(HOME_DIR, '.apollon')
+    BOOTSTRAP_DIR = Apollon::Core::APOLLON_DIR
 
     class << self
-      def app_dir_exists?(dir = APOLLON_DIR)
-        File.exists?(dir)
-      end
-
-      def bootstrap(dir = APOLLON_DIR)
+      def bootstrap(dir = BOOTSTRAP_DIR)
         puts "Bootstraping Apollon Environment - #{Apollon::VERSION}"
 
-        unless app_dir_exists?(dir)
-          create_app_dir(dir)
-        end
-      end
-
-      def create_app_dir(dir = APOLLON_DIR)
-        puts "Creating Apollon application data directory - #{dir}"
-        Dir.mkdir(dir)
+        Apollon::Core.create_app_dir(dir) unless Apollon::Core.app_dir_exists?(dir)
       end
     end
   end
