@@ -4,12 +4,13 @@ require 'gli'
 
 include GLI::App
 
+require_relative '../../bootstrap/boostrap'
+
 require_relative '../shared'
 
 desc 'Bootstrap Apollon Environemnt'
 command :bootstrap do |c|
   c.action do |_global_options, _options, _args|
-    # TODO: Implement
-    puts 'Bootstraping Apollon Environment'
+    Apollon::Bootstrap.bootstrap
   end
 end
