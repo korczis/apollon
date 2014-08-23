@@ -34,7 +34,7 @@ module Apollon
         create_version_file(dir)
       end
 
-      def create_version_file(dir = APOLLON_DIR)
+      def create_version_file(_dir = APOLLON_DIR)
         File.open(VERSION_FILE_PATH, 'w') do |f|
           f.write("#{Apollon::VERSION}\n")
         end
