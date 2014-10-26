@@ -4,3 +4,4 @@ require_relative '../lib/apollon/lib'
 require_relative '../lib/apollon/version'
 
 require_relative '../lib/apollon/cli/cli'
+

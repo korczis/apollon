@@ -8,10 +8,7 @@ module Apollon
     HOME_DIR ||= File.expand_path('~')
     APOLLON_DIR ||= File.join(HOME_DIR, '.apollon')
 
-    BASE_DIR ||= File.absolute_path(File.join(File.dirname(__FILE__),
-                                              '..',
-                                              '..',
-                                              '..'))
+    BASE_DIR ||= File.absolute_path(File.join(File.dirname(__FILE__), '..', '..'))
 
     PUPPET_DIR ||= File.join(BASE_DIR, 'data', 'puppet')
     MODULE_DIR ||= File.join(PUPPET_DIR, 'modules')

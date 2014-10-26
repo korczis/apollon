@@ -6,6 +6,8 @@ require 'terminal-table'
 
 require_relative '../shared'
 
+require_relative '../../core'
+
 require_relative '../../puppet/puppet'
 
 include GLI::App
@@ -38,7 +40,7 @@ command :puppet do |puppet|
         print_puppet_table(Apollon::Puppet.manifests,
                            'Puppet Manifests',
                            %w(id Name Relative Path),
-                           Apollon::Puppet::MANIFEST_DIR)
+                           Apollon::Core::MANIFEST_DIR)
       end
     end
   end
@@ -53,7 +55,7 @@ command :puppet do |puppet|
         print_puppet_table(Apollon::Puppet.modules,
                            'Puppet Modules',
                            %w(id Name Relative Path),
-                           Apollon::Puppet::MODULE_DIR)
+                           Apollon::Core::MODULE_DIR)
       end
     end
   end
