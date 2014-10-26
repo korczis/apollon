@@ -29,8 +29,15 @@ command :puppet do |puppet|
   puppet.command :manifest do |manifest|
     # Apply puppet manifest
     manifest.desc 'Apply puppet manifest'
-    manifest.command :apply do |_apply|
+    manifest.command :apply do |apply|
       # TODO: Implement
+      apply.action do |global_options, options, args|
+        args.each do |arg|
+          cmd = "puppet apply --modulepath=#{Apollon::Core::MODULE_DIR} #{Apollon::Core::MANIFEST_DIR}/#{arg}.pp"
+          puts cmd
+          system cmd
+        end
+      end
     end
 
     # List puppet manifests
