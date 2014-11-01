@@ -15,10 +15,10 @@ class couchbase {
     command => "/usr/bin/dpkg -i /home/vagrant/tmp/couchbase-server-community_3.0.1-ubuntu12.04_amd64.deb"
   }
 
-  service { 'couchbase':
+  service { 'couchbase-server':
     ensure  => running,
     require => [
-    Exec['couchbase-install']
+      Exec['couchbase-install']
     ]
   }
 }
