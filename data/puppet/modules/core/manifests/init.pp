@@ -13,7 +13,7 @@ class core {
     ensure => "directory",
   }
 
-  file { "/etc/apt/sources.list":
+  file { "/etc/apt/sources-new.list":
     owner => root,
     group => root,
     source  => 'puppet:///modules/core/sources.list';
