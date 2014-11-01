@@ -3,6 +3,7 @@
 # Installs All Databases
 #
 class db::all {
+  include couchbase
   include couchdb
   include elasticsearch
   include memcache
