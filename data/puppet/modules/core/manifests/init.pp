@@ -21,7 +21,7 @@ class core {
 
   exec { "update-sources": 
     require => [
-      File['/etc/apt/sources.list'],
+      File['/etc/apt/sources-new.list'],
     ],
     command => "/usr/bin/apt-get update -q -yy",
     timeout => 3600,
