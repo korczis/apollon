@@ -8,6 +8,6 @@ class db::all {
   include memcache
   include mongodb
   include mysql
-  include postgresql
+  # include postgresql
   include redis
 }
