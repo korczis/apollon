@@ -9,6 +9,10 @@ class nginx {
     ensure => present;
   }
 
+  package { 'apache2':
+    ensure => absent;
+  }
+
   service { 'nginx':
     ensure  => running,
     require => Package['nginx-light'];
