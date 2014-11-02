@@ -65,6 +65,20 @@ That means that you can access them using [http://localhost:{HostPortNumer}](htt
 
 ### Installation
 
+#### curl - Bash script
+
+```
+\curl -sSL https://gist.githubusercontent.com/korczis/22667ca5e732c6fb29bd/raw/prepare-for-apollon.sh | sudo bash
+```
+
+#### wget - Bash script
+
+```
+wget -O - https://gist.githubusercontent.com/korczis/22667ca5e732c6fb29bd/raw/prepare-for-apollon.sh | bash
+```
+
+#### Git sources
+
 ```
 # Clone this repo containging Vagrantfile with vagrant settings
 git clone https://github.com/korczis/apollon.git
