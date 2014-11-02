@@ -25,10 +25,10 @@ end
 desc 'Puppet low-level commands'
 command :puppet do |puppet|
   # Puppet apply
-  puppet.desc 'Puppet apply[default]'
+  puppet.desc 'Puppet apply [default]'
   puppet.command :apply do |apply|
     apply.action do |global_options, options, args|
-      cmd = "puppet apply --modulepath=#{Apollon::Core::MODULE_DIR} #{Apollon::Core::MANIFEST_DIR}/all.pp"
+      cmd = "sudo puppet apply --modulepath=#{Apollon::Core::MODULE_DIR} #{Apollon::Core::MANIFEST_DIR}/all.pp"
       puts cmd
       system cmd
     end
