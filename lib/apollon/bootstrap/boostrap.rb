@@ -15,6 +15,10 @@ module Apollon
         puts "Bootstraping Apollon Environment - #{Apollon::VERSION}"
 
         Apollon::Core.create_app_dir(dir) unless Apollon::Core.app_dir_exists?(dir)
+
+        cmd = "sudo apt-get install puppet-common"
+        puts cmd
+        system cmd
       end
     end
   end
