@@ -1,8 +1,8 @@
-# == Class: java
+# == Class: java8
 #
 # Installs Oracle Java.
 #
-class java {
+class java8 {
   require core
 
   # Copy script which bypass java EULA
