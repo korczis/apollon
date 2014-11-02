@@ -4,7 +4,7 @@
 #
 class zookeeper {
   require core
-  require java
+  require java8
 
   package { 'zookeeper':
     ensure => present;
