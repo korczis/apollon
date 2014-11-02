@@ -6,7 +6,7 @@ echo "Creating home directory"
 mkdir -p /home/apollon
 
 echo "Creating user and adding user to sudo group"
-useradd -m -U -G sudo -b /home/apollon -p apollon apollon
+useradd -m -U -G sudo -b /home -p apollon apollon
 
 echo "Changing ownership of home directory"
 chown -R apollon:apollon /home/apollon
