@@ -4,7 +4,7 @@
 #
 class elasticsearch {
   require core
-  require java
+  require java8
 
   exec { "elasticsearch-download":
     command => "/usr/bin/wget -P /home/vagrant/tmp https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb"
