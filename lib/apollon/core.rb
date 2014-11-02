@@ -10,7 +10,10 @@ module Apollon
 
     BASE_DIR ||= File.absolute_path(File.join(File.dirname(__FILE__), '..', '..'))
 
-    PUPPET_DIR ||= File.join(BASE_DIR, 'data', 'puppet')
+    DATA_DIR ||= File.join(BASE_DIR, 'data')
+
+    PACKER_DIR ||= File.join(DATA_DIR, 'packer')
+    PUPPET_DIR ||= File.join(DATA_DIR, 'puppet')
     MODULE_DIR ||= File.join(PUPPET_DIR, 'modules')
     MANIFEST_DIR ||= File.join(PUPPET_DIR, 'manifests')
 
