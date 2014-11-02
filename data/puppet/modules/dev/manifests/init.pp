@@ -9,7 +9,7 @@ class dev::all {
   include ghc
   include git
   include golang
-  include java
+  include java8
   include llvm
   include llvm
   include nodejs
