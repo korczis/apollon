@@ -10,7 +10,7 @@ class java8 {
     owner => apollon,
     group => apollon,
     mode => 0755,
-    source  => 'puppet:///modules/java/accept-java-license.sh';
+    source  => 'puppet:///modules/java8/accept-java-license.sh';
   }
 
   # Copy script for installing java 7
@@ -18,7 +18,7 @@ class java8 {
     owner => apollon,
     group => apollon,
     mode => 0755,
-    source  => 'puppet:///modules/java/install-java7.sh';
+    source  => 'puppet:///modules/java8/install-java7.sh';
   }
 
   # Copy script for installing java 8
@@ -26,7 +26,7 @@ class java8 {
     owner => apollon,
     group => apollon,
     mode => 0755,
-    source  => 'puppet:///modules/java/install-java8.sh';
+    source  => 'puppet:///modules/java8/install-java8.sh';
   }
 
   # Run script for bypassing java EULA
