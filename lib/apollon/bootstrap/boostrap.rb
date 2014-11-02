@@ -16,11 +16,11 @@ module Apollon
 
         Apollon::Core.create_app_dir(dir) unless Apollon::Core.app_dir_exists?(dir)
 
-        cmd = "sudo apt-get install puppet-common"
+        script_path = File.join(Apollon::Core::PACKER_DIR, 'core', 'scripts', 'provision-digitalocean.sh')
+        cmd = "#{script_path}"
         puts cmd
         system cmd
       end
     end
   end
 end
-#

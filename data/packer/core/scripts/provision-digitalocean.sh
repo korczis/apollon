@@ -2,10 +2,10 @@
 
 echo "Basic provisioning using bash script is happening right now ..."
 
-sudo mkdir -p /home/vagrant
+mkdir -p /home/apollon
 
-sudo useradd -m -U -G sudo -b /home/apollon -p apollon apollon
+useradd -m -U -G sudo -b /home/apollon -p apollon apollon
 
 chown -R apollon:apollon /home/apollon
 
-sudo echo "apollon   ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers; sync;
+echo "apollon   ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers; sync;
