@@ -18,8 +18,9 @@ module Apollon
 
         script_path = File.join(Apollon::Core::PACKER_DIR, 'core', 'scripts', 'provision-digitalocean.sh')
         cmd = "bash #{script_path}"
+        STDOUT.sync = true
         IO.popen(cmd) do |data|
-          while line = data.gets
+          data.each do |line|
             puts line
           end
         end
