@@ -3,13 +3,13 @@
 # Installs core packages
 #
 class core {
-  # create a directory for vagrant scripts
-  file { "/home/vagrant/scripts":
+  # create a directory for apollon scripts
+  file { "/home/apollon/scripts":
     ensure => "directory",
   }
 
   # create a directory for temporary files scripts
-  file { "/home/vagrant/tmp":
+  file { "/home/apollon/tmp":
     ensure => "directory",
   }
 
@@ -56,8 +56,8 @@ class core {
   exec { "core-done":
     require => [
       Exec['apt-upgrade'],
-      File['/home/vagrant/tmp'],
-      File['/home/vagrant/scripts'],
+      File['/home/apollon/tmp'],
+      File['/home/apollon/scripts'],
     ],
     command => "/bin/echo Core Init done",
   }

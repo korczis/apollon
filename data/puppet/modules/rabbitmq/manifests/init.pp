@@ -6,11 +6,11 @@ class rabbitmq {
   require core
 
   # create a directory for temporary files scripts
-  file { "/home/vagrant/scripts/rabbitmq":
+  file { "/home/apollon/scripts/rabbitmq":
     ensure => "directory",
   }
 
-  file { "/home/vagrant/scripts/rabbitmq/enable-user-management.sh":
+  file { "/home/apollon/scripts/rabbitmq/enable-user-management.sh":
     owner => root,
     group => root,
     mode => 0755,
@@ -28,9 +28,9 @@ class rabbitmq {
 
   exec { 'enable-user-management':
     require => [
-    	File['/home/vagrant/scripts/rabbitmq/enable-user-management.sh'],
+    	File['/home/apollon/scripts/rabbitmq/enable-user-management.sh'],
     	Service['rabbitmq-server']
 	],
-    command => '/home/vagrant/scripts/rabbitmq/enable-user-management.sh'
+    command => '/home/apollon/scripts/rabbitmq/enable-user-management.sh'
   }
 }

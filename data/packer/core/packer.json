@@ -3,8 +3,8 @@
         "arch": "amd64",
         "iso_checksum": "01545fa976c8367b4f0d59169ac4866c",
 
-        "ssh_username": "vagrant",
-        "ssh_password": "vagrant",
+        "ssh_username": "apollon",
+        "ssh_password": "apollon",
 
         "digitalocean_id": "",
         "digitalocean_api_key": "",
@@ -13,7 +13,7 @@
         "puppet_manifest_file": "../../puppet/manifests/web.pp",
         "puppet_module_paths": "../../puppet/modules",
 
-        "vagrant_output": "../../artifacts/vagrant.box"
+        "vagrant_output": "../../artifacts/apollon.box"
     },
 
     "builders": [

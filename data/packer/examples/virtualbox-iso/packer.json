@@ -11,8 +11,8 @@
             "iso_url": "http://releases.ubuntu.com/14.04/ubuntu-14.04-server-{{user `arch`}}.iso",
             "iso_checksum": "{{user `iso_checksum`}}",
             "iso_checksum_type": "md5",
-            "ssh_username": "vagrant",
-            "ssh_password": "vagrant",
+            "ssh_username": "apollon",
+            "ssh_password": "apollon",
             "ssh_wait_timeout": "60m",
             "boot_command": [
                 "<esc><esc><enter><wait>",

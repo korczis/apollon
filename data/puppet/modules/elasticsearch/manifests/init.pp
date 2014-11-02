@@ -7,12 +7,12 @@ class elasticsearch {
   require java8
 
   exec { "elasticsearch-download":
-    command => "/usr/bin/wget -P /home/vagrant/tmp https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb"
+    command => "/usr/bin/wget -P /home/apollon/tmp https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.deb"
   }
 
   exec { "elasticsearch-install":
     require => Exec["elasticsearch-download"],
-    command => "/usr/bin/dpkg -i /home/vagrant/tmp/elasticsearch-1.1.1.deb"
+    command => "/usr/bin/dpkg -i /home/apollon/tmp/elasticsearch-1.1.1.deb"
   }
 
   exec { "elasticsearch-service":

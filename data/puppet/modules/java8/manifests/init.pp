@@ -6,53 +6,53 @@ class java8 {
   require core
 
   # Copy script which bypass java EULA
-  file { '/home/vagrant/accept-java-license.sh':
-    owner => vagrant,
-    group => vagrant,
+  file { '/home/apollon/accept-java-license.sh':
+    owner => apollon,
+    group => apollon,
     mode => 0755,
     source  => 'puppet:///modules/java/accept-java-license.sh';
   }
 
   # Copy script for installing java 7
-  file { '/home/vagrant/install-java7.sh':
-    owner => vagrant,
-    group => vagrant,
+  file { '/home/apollon/install-java7.sh':
+    owner => apollon,
+    group => apollon,
     mode => 0755,
     source  => 'puppet:///modules/java/install-java7.sh';
   }
 
   # Copy script for installing java 8
-  file { '/home/vagrant/install-java8.sh':
-    owner => vagrant,
-    group => vagrant,
+  file { '/home/apollon/install-java8.sh':
+    owner => apollon,
+    group => apollon,
     mode => 0755,
     source  => 'puppet:///modules/java/install-java8.sh';
   }
 
   # Run script for bypassing java EULA
   exec { "accept-java-license":
-    require => File['/home/vagrant/accept-java-license.sh'],
-    command => "/home/vagrant/accept-java-license.sh"
+    require => File['/home/apollon/accept-java-license.sh'],
+    command => "/home/apollon/accept-java-license.sh"
   }
 
   # Install Oracle Java 7 Installer
   # exec { "oracle-java7-install-script":
   #   require => [
   #     Exec['accept-java-license'],
-  #     File['/home/vagrant/install-java7.sh']
+  #     File['/home/apollon/install-java7.sh']
   #   ],
   #   logoutput => true,
-  #   command => "/home/vagrant/install-java7.sh"
+  #   command => "/home/apollon/install-java7.sh"
   # }
 
   # Install Oracle Java 8 Installer
   # exec { "oracle-java8-install-script":
   #   require => [
   #     Exec['accept-java-license'],
-  #     File['/home/vagrant/install-java8.sh'],
+  #     File['/home/apollon/install-java8.sh'],
   #   ],
   #   logoutput => true,
-  #   command => "/home/vagrant/install-java8.sh"
+  #   command => "/home/apollon/install-java8.sh"
   # }
 
   package { 'oracle-java7-installer':

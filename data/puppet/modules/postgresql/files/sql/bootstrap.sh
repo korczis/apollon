@@ -1,1 +1,3 @@
-alter user vagrant with password 'vagrant';
+# !/usr/bin/env ??
+
+alter user vagrant with password 'apollon';

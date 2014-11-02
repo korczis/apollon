@@ -2,7 +2,7 @@
     {
         "hostname": "apollo-fat-box-packer",
         "box": "apollo-fat-box-packer",
-        "box_url": "artifacts/vagrant.box",
+        "box_url": "artifacts/apollon.box",
 
         "network": {
             "ports": [

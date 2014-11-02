@@ -82,7 +82,7 @@ class postgresql {
     ];
   }
 
-  file { '/home/vagrant/scripts/create-postgresql-user.sh':
+  file { '/home/apollon/scripts/create-postgresql-user.sh':
     owner => postgres,
     group => postgres,
     mode => 0755,
@@ -90,14 +90,14 @@ class postgresql {
     require => Package['postgresql']
   }
 
-  file { '/home/vagrant/scripts/create-extension-adminpack.sql':
+  file { '/home/apollon/scripts/create-extension-adminpack.sql':
     owner => postgres,
     group => postgres,
     source  => 'puppet:///modules/postgresql/sql/create-extension-adminpack.sql',
     require => Package['postgresql']
   }
 
-  file { '/home/vagrant/scripts/create-extension-postgis.sql':
+  file { '/home/apollon/scripts/create-extension-postgis.sql':
     owner => postgres,
     group => postgres,
     source  => 'puppet:///modules/postgresql/sql/create-extension-postgis.sql',
@@ -107,20 +107,20 @@ class postgresql {
   exec { 'create-extension-postgis':
     user => 'postgres',
     require => [
-    File['/home/vagrant/scripts/create-extension-postgis.sql'],
+    File['/home/apollon/scripts/create-extension-postgis.sql'],
     Service['postgresql']
     ],
-    command => '/usr/bin/psql -f /home/vagrant/scripts/create-extension-postgis.sql'
+    command => '/usr/bin/psql -f /home/apollon/scripts/create-extension-postgis.sql'
   }
 
-  exec { 'add-vagrant-postgresql-user':
+  exec { 'add-apollon-postgresql-user':
     user => 'postgres',
     require => Service['postgresql'],
-    command => '/home/vagrant/scripts/create-postgresql-user.sh'
+    command => '/home/apollon/scripts/create-postgresql-user.sh'
   }
 
-  exec { 'restart-postgresql-after-adding-vagrant-user':
-    require => Exec['add-vagrant-postgresql-user'],
+  exec { 'restart-postgresql-after-adding-apollon-user':
+    require => Exec['add-apollon-postgresql-user'],
     command => '/usr/sbin/service postgresql restart'
   }
 
@@ -136,10 +136,10 @@ class postgresql {
   exec { 'create-extension-adminpack':
     user => 'postgres',
     require => [
-      File['/home/vagrant/scripts/create-extension-adminpack.sql'],
+      File['/home/apollon/scripts/create-extension-adminpack.sql'],
       Service['postgresql'],
       Exec['updatedb']
     ],
-    command => '/usr/bin/psql -f /home/vagrant/scripts/create-extension-adminpack.sql'
+    command => '/usr/bin/psql -f /home/apollon/scripts/create-extension-adminpack.sql'
   }
 }
