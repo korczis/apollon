@@ -17,7 +17,7 @@ module Apollon
         Apollon::Core.create_app_dir(dir) unless Apollon::Core.app_dir_exists?(dir)
 
         script_path = File.join(Apollon::Core::PACKER_DIR, 'core', 'scripts', 'provision-digitalocean.sh')
-        cmd = "`/usr/bin/env bash` #{script_path}"
+        cmd = "bash #{script_path}"
         puts cmd
         system cmd
       end
