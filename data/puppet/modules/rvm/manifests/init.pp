@@ -4,6 +4,7 @@
 #
 class rvm {
   require core
+  require curl
 
   $rvm_user = "root"
 
