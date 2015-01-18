@@ -7,5 +7,5 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill mongo-rs0-srv0
 ExecStartPre=-/usr/bin/docker rm mongo-rs0-srv0
 ExecStartPre=/usr/bin/docker pull korczis/mongod
-ExecStart=/usr/bin/docker run -p 27017:27017 --name mongo-rs0-srv0 korczis/mongod --replSet rs1 --noprealloc --smallfiles
+ExecStart=/usr/bin/docker run -p 27017:27017 --name mongo-rs0-srv0 korczis/mongod --port 27017 --replSet rs0 --noprealloc --smallfiles
 ExecStop=/usr/bin/docker stop mongo-rs0-srv0
