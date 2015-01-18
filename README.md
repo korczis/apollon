@@ -8,6 +8,15 @@ Your own personal cluster built on top of the cloud.
 - Docker
 - Etcd
 
+## Technologies
+
+- Docker (engaged)
+- Fleet (engaged)
+- Flannel
+- Kubernetes
+- Mesos
+- AWS Route 53
+
 ## Getting started
 
 ```
@@ -23,15 +32,6 @@ git submodule init
 # Update submodules
 git submodule update
 ```
-
-## Technologies
-
-- Docker (engaged)
-- Fleet (engaged)
-- Flannel
-- Kubernetes
-- Mesos
-- AWS Route 53
 
 ## Cloud providers
 
