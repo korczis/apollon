@@ -17,11 +17,26 @@ Your own personal cluster built on top of the cloud.
 - Mesos
 - AWS Route 53
 
+## Getting started
+
+```
+# Clone repository
+git clone https://github.com/korczis/apollon.git
+
+# Enter repository
+cd apollon
+
+# Init submodules
+git submodule init
+
+# Update submodules
+git submodule update
+```
+
 ## Cloud providers
 
 - Digital Ocean
 - AWS
-
 
 ## Reference
 
