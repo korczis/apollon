@@ -9,8 +9,8 @@ module Apollon
   class Auth
     attr_reader :auth_config, :auth_config_path, :auth_path, :raw
 
-    def initialize
-      @auth_config_path = File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
+    def initialize(config_path = nil)
+      @auth_config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
       @auth_config = YAML.load_file(@auth_config_path)
       @auth_path = File.expand_path('~/.apollon/auth.json')
       @raw = nil
