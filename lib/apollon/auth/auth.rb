@@ -65,6 +65,10 @@ module Apollon
       @raw = Apollon::Auth.load(path)
     end
 
+    def providers
+      auth_config['providers']
+    end
+
     def show
       load_config
     end
