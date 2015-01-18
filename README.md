@@ -47,6 +47,8 @@ git submodule update
 
 ## Usage
 
+### apollon
+
 ```
 tomaskorcak@kx-mac apollon$ apollon
 NAME
