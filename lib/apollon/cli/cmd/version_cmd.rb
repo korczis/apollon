@@ -9,8 +9,8 @@ require_relative '../../version'
 require_relative '../shared'
 
 desc 'Print version info'
-command :version do |c|
-  c.action do |_global_options, _options, _args|
+command :version do |cmd|
+  cmd.action do |_global_options, _options, _args|
     pp Apollon::VERSION
   end
 end
