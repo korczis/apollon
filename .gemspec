@@ -24,19 +24,18 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
   s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
-  s.add_dependency 'aws-sdk-core', '~> 2.0.0.rc7'
-  s.add_dependency 'digitalocean', '~> 1.1', '>= 1.1.0'
-  s.add_dependency 'fog', '~> 1.22', '>= 1.22.1'
-  s.add_dependency 'gli', '~> 2.11', '>= 2.11.0'
-  s.add_dependency 'json_pure', '~> 1.8', '>= 1.8.1'
-  s.add_dependency 'librarian-puppet', '~> 1.1', '>= 1.1.2'
-  s.add_dependency 'multi_json', '~> 1.10', '>= 1.10.1'
-  s.add_dependency 'puppet', '~> 3.6', '>= 3.6.2'
-  s.add_dependency 'rake', '~> 10.3', '>= 10.3.2'
+  s.add_dependency 'aws-sdk-core', '~> 2.0', '>= 2.0.19'
+  s.add_dependency 'digitalocean', '~> 1.2', '>= 1.2.0'
+  s.add_dependency 'fog', '~> 1.27', '>= 1.27.0'
+  s.add_dependency 'fleet-api', '~> 0.9', '>= 0.9.0'
+  s.add_dependency 'gli', '~> 2.12', '>= 2.12.0'
+  s.add_dependency 'json_pure', '~> 1.8', '>= 1.8.0'
+  s.add_dependency 'multi_json', '~> 1.10', '>= 1.10.0'
+  s.add_dependency 'rake', '~> 10.4', '>= 10.4.0'
   s.add_dependency 'terminal-table', '~> 1.4', '>= 1.4.5'
 
-  s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.0r'
-  s.add_development_dependency 'rspec', '~> 3.0', '>= 3.0.0'
-  s.add_development_dependency 'rubocop', '~> 0.24', '>= 0.24.0'
-  s.add_development_dependency 'simplecov', '~> 0.8', '>= 0.8.2'
+  s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
+  s.add_development_dependency 'rspec', '~> 3.1', '>= 3.1.0'
+  s.add_development_dependency 'rubocop', '~> 0.28', '>= 0.28.0'
+  s.add_development_dependency 'simplecov', '~> 0.9', '>= 0.9.1'
 end
