@@ -1,0 +1,11 @@
+[Unit]
+Description=Mongo
+After=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill mongo-rs0-srv0
+ExecStartPre=-/usr/bin/docker rm mongo-rs0-srv0
+ExecStartPre=/usr/bin/docker pull korczis/mongod
+ExecStart=/usr/bin/docker run --name mongo-rs0-srv0 korczis/mongod --replSet rs1 --noprealloc --smallfiles
+ExecStop=/usr/bin/docker stop mongo-rs0-srv0
