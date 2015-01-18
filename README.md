@@ -19,6 +19,18 @@ Your own personal cluster built on top of the cloud.
 
 ## Getting started
 
+### Gem
+
+If you want to get started using gem it is simple as..
+
+```
+gem install apollon
+```
+
+### Github
+
+If you want to use [Apollon](https://github.com/korczis/apollon) from sources all you need to do is ...
+
 ```
 # Clone repository
 git clone https://github.com/korczis/apollon.git
@@ -31,6 +43,35 @@ git submodule init
 
 # Update submodules
 git submodule update
+```
+
+## Usage
+
+### apollon
+
+```
+tomaskorcak@kx-mac apollon$ apollon
+NAME
+    apollon - Apollon 0.1.0
+
+SYNOPSIS
+    apollon [global options] command [command options] [arguments...]
+
+GLOBAL OPTIONS
+    --help - Show this message
+
+COMMANDS
+    auth    - Authentication
+    help    - Shows a list of commands or help for one command
+    version - Print version info
+tomaskorcak@kx-mac apollon (master) $
+```
+
+### apollon version
+
+```
+tomaskorcak@kx-mac apollon$ apollon version
+"0.1.0"
 ```
 
 ## Cloud providers
