@@ -1,0 +1,5 @@
+providers:
+    - provider : DigitalOcean
+      fields   : [token]
+    - provider : AWS
+      fields   : [key, secret]
