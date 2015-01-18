@@ -1,3 +1,3 @@
 # Apollon
 
-Your own, personal cluster built on top of the cloud.
+Your own personal cluster built on top of the cloud.
