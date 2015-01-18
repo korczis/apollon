@@ -8,6 +8,22 @@ Your own personal cluster built on top of the cloud.
 - Docker
 - Etcd
 
+## Getting started
+
+```
+# Clone repository
+git clone https://github.com/korczis/apollon.git
+
+# Enter repository
+cd apollon
+
+# Init submodules
+git submodule init
+
+# Update submodules
+git submodule update
+```
+
 ## Technologies
 
 - Docker (engaged)
@@ -21,7 +37,6 @@ Your own personal cluster built on top of the cloud.
 
 - Digital Ocean
 - AWS
-
 
 ## Reference
 
