@@ -17,14 +17,16 @@ command :auth do |c|
   c.desc 'Initialize authentication credentials'
   c.command :init do |cmd|
     cmd.action do
-      client.auth.init
+      res = client.auth.init
+      puts JSON.pretty_generate(res)
     end
   end
 
   c.desc 'Show authentication credentials'
   c.command :show do |cmd|
     cmd.action do
-      client.auth.show
+      res = client.auth.show
+      puts JSON.pretty_generate(res)
     end
   end
 end
