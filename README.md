@@ -45,6 +45,26 @@ git submodule init
 git submodule update
 ```
 
+## Usage
+
+```
+tomaskorcak@kx-mac apollon$ apollon
+NAME
+    apollon - Apollon 0.1.0
+
+SYNOPSIS
+    apollon [global options] command [command options] [arguments...]
+
+GLOBAL OPTIONS
+    --help - Show this message
+
+COMMANDS
+    auth    - Authentication
+    help    - Shows a list of commands or help for one command
+    version - Print version info
+tomaskorcak@kx-mac apollon (master) $
+```
+
 ## Cloud providers
 
 - Digital Ocean
