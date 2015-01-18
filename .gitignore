@@ -1,1 +1,5 @@
+# Idea project folder
+.idea/
+
+# Built gem
 pkg/
