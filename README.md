@@ -1,4 +1,3 @@
-apollo-uber-box
-===============
+# Apollon
 
-Big, fat box containing almost all tools and libs for data science
+Your own, personal cluster built on top of the cloud.
