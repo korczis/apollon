@@ -67,6 +67,13 @@ COMMANDS
 tomaskorcak@kx-mac apollon (master) $
 ```
 
+### apollon version
+
+```
+tomaskorcak@kx-mac apollon$ apollon version
+"0.1.0"
+```
+
 ## Cloud providers
 
 - Digital Ocean
