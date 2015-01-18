@@ -13,7 +13,7 @@ end
 
 include GLI::App
 
-program_desc "Apollon CLI #{Apollon::VERSION}"
+program_desc "Apollon #{Apollon::VERSION}"
 
 module Apollon
   # Apollon CLI
@@ -27,7 +27,7 @@ module Apollon
         require file
       end
 
-      program_desc 'Apollon CLI'
+      program_desc 'Apollon'
 
       def main(argv = ARGV)
         launch(argv)
