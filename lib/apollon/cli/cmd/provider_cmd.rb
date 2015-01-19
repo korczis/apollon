@@ -18,7 +18,17 @@ command :provider do |c|
   c.desc 'List existing providers'
   c.command :list do |cmd|
     cmd.action do
-      res = client.auth.providers
+      res = client.auth.providers.map { |provider| provider['provider']}
+      puts JSON.pretty_generate(res)
+    end
+  end
+
+  c.desc 'Show provider details'
+  c.command :show do |cmd|
+    cmd.action do |global_options, options, args|
+      res = args.map do |provider_name|
+        client.auth.providers.select { |provider| provider['provider'] == provider_name }.first
+      end
       puts JSON.pretty_generate(res)
     end
   end
