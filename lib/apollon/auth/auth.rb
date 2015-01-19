@@ -13,7 +13,9 @@ module Apollon
       @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
       @config = YAML.load_file(@config_path)
       @auth_path = File.expand_path('~/.apollon/auth.json')
-      @raw = load_config
+
+      # Load config
+      load_config
     end
 
     class << self
@@ -51,13 +53,12 @@ module Apollon
     end
 
     def load_config(path = auth_path)
-      Apollon::Auth.load(path)
+      @raw = Apollon::Auth.load(path)
     end
 
     def init(init_config = config)
       @raw = Apollon::Auth.init(init_config)
-      write
-      raw
+      write # returns raw
     end
 
     def load(path)
@@ -73,12 +74,13 @@ module Apollon
     end
 
     def show
-      load_config
+      @raw
     end
 
     def write
       # Generate pretty JSON representation
       Apollon::Auth.write(auth_path, raw)
+      raw
     end
   end
 end
