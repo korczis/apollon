@@ -33,7 +33,7 @@ command :provider do |c|
       res = {}
       args.each do |provider_name|
         val = client.auth.auth_config.select { |k,v| k.downcase == provider_name.downcase }
-        res[provider_name] = val if val
+        res.merge!(val) if val
       end
 
       puts JSON.pretty_generate(res)
