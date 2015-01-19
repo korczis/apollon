@@ -17,7 +17,7 @@ command :auth do |c|
   c.desc 'Initialize authentication credentials'
   c.command :init do |cmd|
     cmd.action do |global_options, options, args|
-      res = client.auth.init(args)
+      res = client.auth.init
       puts JSON.pretty_generate(res)
     end
   end
