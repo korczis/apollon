@@ -50,7 +50,7 @@ git submodule update
 ### apollon
 
 ```
-tomaskorcak@kx-mac apollon$ apollon
+tomaskorcak@kx-mac apollon $ apollon
 NAME
     apollon - Apollon 0.1.0
 
@@ -61,10 +61,12 @@ GLOBAL OPTIONS
     --help - Show this message
 
 COMMANDS
-    auth    - Authentication
-    help    - Shows a list of commands or help for one command
-    version - Print version info
-tomaskorcak@kx-mac apollon (master) $
+    auth     - Authentication
+    cluster  - High Level Cluster management
+    help     - Shows a list of commands or help for one command
+    machine  - Machine(s) manager
+    provider - Provider(s) manager
+    version  - Print version info
 ```
 
 ### apollon version
