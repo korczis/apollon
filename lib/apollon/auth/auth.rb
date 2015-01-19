@@ -29,6 +29,12 @@ module Apollon
             values[provider][field] = $stdin.gets.chomp
           end
         end
+
+        values.each do |k,v|
+          res = v.select { |k,v| v == nil || v.empty? }
+          values.delete k if res.length > 0
+        end
+
         values
       end
 
