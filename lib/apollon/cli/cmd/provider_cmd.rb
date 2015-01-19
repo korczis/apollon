@@ -27,9 +27,9 @@ command :provider do |c|
   c.command :show do |cmd|
     cmd.action do |global_options, options, args|
       res = args.map do |provider_name|
-        client.auth.providers.select { |provider| provider['provider'] == provider_name }.first
+        client.auth.providers.select { |provider| provider['provider'].downcase == provider_name.downcase }.first
       end
-      puts JSON.pretty_generate(res)
+      puts JSON.pretty_generate(res.compact)
     end
   end
 end
