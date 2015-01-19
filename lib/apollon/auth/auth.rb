@@ -18,6 +18,9 @@ module Apollon
       load_config
     end
 
+    alias_method :providers, :raw
+    alias_method :show, :raw
+
     class << self
       def init(config)
         values = {}
@@ -71,16 +74,8 @@ module Apollon
       @raw = Apollon::Auth.load(path)
     end
 
-    def providers
-      @raw ||= load_config
-    end
-
     def providers_names
       providers.keys
-    end
-
-    def show
-      @raw
     end
 
     def write
