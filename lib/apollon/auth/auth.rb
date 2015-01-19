@@ -13,26 +13,25 @@ module Apollon
       @auth_config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
       @auth_config = YAML.load_file(@auth_config_path)
       @auth_path = File.expand_path('~/.apollon/auth.json')
-      @raw = nil
+      @raw = load_config
     end
 
     class << self
       def init(config)
         values = {}
-        config['providers'].each do |provider|
-          values[provider['provider']] = {}
+        config.each do |provider, settings|
+          values[provider] = {}
 
-          provider['fields'].each do |field|
-            provider_name = provider['provider']
-            print "#{provider_name} #{field}: "
-            values[provider_name][field] = $stdin.gets.chomp
+          settings['fields'].each do |field|
+            print "#{provider} #{field}: "
+            values[provider][field] = $stdin.gets.chomp
           end
         end
         values
       end
 
       def load(path)
-        res = nil
+        res = {}
         if File.exists?(path)
           content = File.read(path)
           res = JSON.parse(content)
@@ -66,7 +65,11 @@ module Apollon
     end
 
     def providers
-      auth_config['providers']
+      auth_config
+    end
+
+    def providers_names
+      providers.keys
     end
 
     def show

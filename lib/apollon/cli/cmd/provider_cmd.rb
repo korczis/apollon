@@ -18,7 +18,10 @@ command :provider do |c|
   c.desc 'List existing providers'
   c.command :list do |cmd|
     cmd.action do
-      res = client.auth.providers.map { |provider| provider['provider']}
+      res = client.auth.providers_names
+
+      res.compact!
+
       puts JSON.pretty_generate(res)
     end
   end
@@ -26,10 +29,14 @@ command :provider do |c|
   c.desc 'Show provider details'
   c.command :show do |cmd|
     cmd.action do |global_options, options, args|
-      res = args.map do |provider_name|
-        client.auth.providers.select { |provider| provider['provider'].downcase == provider_name.downcase }.first
+      args = args.nil? || args.empty? ? client.auth.providers_names : args
+      res = {}
+      args.each do |provider_name|
+        val = client.auth.auth_config.select { |k,v| k.downcase == provider_name.downcase }
+        res[provider_name] = val if val
       end
-      puts JSON.pretty_generate(res.compact)
+
+      puts JSON.pretty_generate(res)
     end
   end
 end

@@ -24,7 +24,7 @@ command :auth do |c|
 
   c.desc 'Show authentication credentials'
   c.command :show do |cmd|
-    cmd.action do
+    cmd.action do |global_options, options, args|
       res = client.auth.show
       puts JSON.pretty_generate(res)
     end
