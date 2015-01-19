@@ -7,11 +7,11 @@ require 'yaml'
 # Apollon module
 module Apollon
   class Auth
-    attr_reader :auth_config, :auth_config_path, :auth_path, :raw
+    attr_reader :config, :config_path, :auth_path, :raw
 
     def initialize(config_path = nil)
-      @auth_config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
-      @auth_config = YAML.load_file(@auth_config_path)
+      @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
+      @config = YAML.load_file(@config_path)
       @auth_path = File.expand_path('~/.apollon/auth.json')
       @raw = load_config
     end
@@ -54,8 +54,8 @@ module Apollon
       Apollon::Auth.load(path)
     end
 
-    def init(config = auth_config)
-      @raw = Apollon::Auth.init(config)
+    def init(init_config = config)
+      @raw = Apollon::Auth.init(init_config)
       write
       raw
     end
@@ -65,7 +65,7 @@ module Apollon
     end
 
     def providers
-      auth_config
+      @raw ||= load_config
     end
 
     def providers_names

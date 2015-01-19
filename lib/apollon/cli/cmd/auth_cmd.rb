@@ -16,8 +16,8 @@ desc 'Authentication'
 command :auth do |c|
   c.desc 'Initialize authentication credentials'
   c.command :init do |cmd|
-    cmd.action do
-      res = client.auth.init
+    cmd.action do |global_options, options, args|
+      res = client.auth.init(args)
       puts JSON.pretty_generate(res)
     end
   end
@@ -25,7 +25,13 @@ command :auth do |c|
   c.desc 'Show authentication credentials'
   c.command :show do |cmd|
     cmd.action do |global_options, options, args|
-      res = client.auth.show
+      args = args.nil? || args.empty? ? client.auth.providers_names : args
+      res = {}
+      args.each do |provider_name|
+        val = client.auth.show.select { |k, v| k.downcase == provider_name.downcase }
+        res.merge!(val) if val
+      end
+
       puts JSON.pretty_generate(res)
     end
   end

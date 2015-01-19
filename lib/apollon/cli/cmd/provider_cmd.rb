@@ -32,7 +32,7 @@ command :provider do |c|
       args = args.nil? || args.empty? ? client.auth.providers_names : args
       res = {}
       args.each do |provider_name|
-        val = client.auth.auth_config.select { |k,v| k.downcase == provider_name.downcase }
+        val = client.auth.config.select { |k,v| k.downcase == provider_name.downcase }
         res.merge!(val) if val
       end
 
