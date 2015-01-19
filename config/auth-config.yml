@@ -1,4 +1,4 @@
 DigitalOcean:
-  fields: [token]
-AWS:
+  fields: [id, key]
+Aws:
   fields: [key, secret]

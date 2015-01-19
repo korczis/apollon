@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'active_support/all'
 require 'json'
 require 'pp'
 require 'yaml'
@@ -13,6 +14,9 @@ module Apollon
       @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
       @config = YAML.load_file(@config_path)
       @auth_path = File.expand_path('~/.apollon/auth.json')
+
+      # Instances of provider implementations
+      @provider_instances = {}
 
       # Load config
       load_config
@@ -72,6 +76,19 @@ module Apollon
 
     def load(path)
       @raw = Apollon::Auth.load(path)
+    end
+
+    def provider(name)
+      canonical_name = name.downcase
+      unless @provider_instances.key?(canonical_name)
+        file_name = name.underscore
+        file_path = File.expand_path(File.join(File.dirname(__FILE__), '..', "provider/#{file_name}.rb"))
+        require file_path
+        class_name = file_name.camelize
+        klass = Object.const_get('Apollon').const_get('Provider').const_get(class_name)
+        @provider_instances[canonical_name] = klass.new(self)
+      end
+      @provider_instances[canonical_name]
     end
 
     def providers_names

@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
   s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
 
+  s.add_dependency 'activesupport', '~> 4.2', '>= 4.2.0'
   s.add_dependency 'aws-sdk-core', '~> 2.0', '>= 2.0.19'
   s.add_dependency 'digitalocean', '~> 1.2', '>= 1.2.0'
   s.add_dependency 'fog', '~> 1.27', '>= 1.27.0'
@@ -33,6 +34,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'multi_json', '~> 1.10', '>= 1.10.0'
   s.add_dependency 'rake', '~> 10.4', '>= 10.4.0'
   s.add_dependency 'terminal-table', '~> 1.4', '>= 1.4.5'
+
+  s.add_development_dependency 'debase'
+  s.add_development_dependency 'ruby-debug-ide'
 
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
   s.add_development_dependency 'rspec', '~> 3.1', '>= 3.1.0'
