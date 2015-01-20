@@ -8,19 +8,21 @@ require_relative '../version'
 
 # Apollon module
 module Apollon
-  class Cluster
-    attr_reader :client
+  module Cluster
+    class Cluster
+      attr_reader :client
 
-    def initialize(client)
-      @client = client
-    end
-
-    def machines
-      res = client.auth.providers.keys.map do |provider_name|
-        provider = client.auth.provider(provider_name)
-        provider.machines
+      def initialize(client)
+        @client = client
       end
-      res.flatten
+
+      def machines
+        res = client.auth.providers.keys.map do |provider_name|
+          provider = client.auth.provider(provider_name)
+          provider.machines
+        end
+        res.flatten
+      end
     end
   end
 end
