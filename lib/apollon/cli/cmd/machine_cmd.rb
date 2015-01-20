@@ -17,7 +17,7 @@ command :machine do |c|
   c.desc 'List existing machines'
   c.command :list do |cmd|
     cmd.action do
-      res = []
+      res = client.machine.list
       pp res
     end
   end
