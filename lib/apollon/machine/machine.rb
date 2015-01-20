@@ -17,7 +17,11 @@ module Apollon
       end
 
       def list
-        []
+        res = client.auth.providers.keys.map do |provider_name|
+          provider = client.auth.provider(provider_name)
+          provider.machines
+        end
+        res.flatten
       end
     end
   end

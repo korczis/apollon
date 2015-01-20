@@ -17,11 +17,7 @@ module Apollon
       end
 
       def machines
-        res = client.auth.providers.keys.map do |provider_name|
-          provider = client.auth.provider(provider_name)
-          provider.machines
-        end
-        res.flatten
+        client.machine.list
       end
     end
   end

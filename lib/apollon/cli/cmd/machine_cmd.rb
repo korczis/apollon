@@ -17,8 +17,9 @@ command :machine do |c|
   c.desc 'List existing machines'
   c.command :list do |cmd|
     cmd.action do
-      res = client.machine.list
-      pp res
+      client.cluster.machines.each do |machine|
+        pp machine.raw
+      end
     end
   end
 end
