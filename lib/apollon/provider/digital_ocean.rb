@@ -2,12 +2,16 @@
 
 require 'digitalocean'
 
+require_relative 'provider_base'
+
 module Apollon
   module Provider
-    class DigitalOcean
-      def initialize(client)
-        config = client.providers[self.class.to_s.split('::').last]
+    class DigitalOcean < ProviderBase
+      class Machine < ProviderBase::Machine
+      end
 
+      def initialize(client)
+        super(client)
         Digitalocean.client_id = config['id']
         Digitalocean.api_key = config['key']
 
@@ -22,7 +26,7 @@ module Apollon
       end
 
       def machines
-        Digitalocean::Droplet.all.droplets
+        Digitalocean::Droplet.all.droplets.map { |m| Machine.new(self, m) }
       end
     end
   end

@@ -2,12 +2,16 @@
 
 require 'fog'
 
+require_relative 'provider_base'
+
 module Apollon
   module Provider
-    class Aws
-      def initialize(client)
-        config = client.providers[self.class.to_s.split('::').last]
+    class Aws < ProviderBase
+      class Machine < ProviderBase::Machine
+      end
 
+      def initialize(client)
+        super(client)
         opts = {
           :provider => 'AWS',
           :aws_access_key_id => config['key'],
@@ -19,7 +23,7 @@ module Apollon
       end
 
       def machines
-        @compute.servers.all.to_a
+        @compute.servers.all.to_a.map { |m| Machine.new(self, m) }
       end
     end
   end
