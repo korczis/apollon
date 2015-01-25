@@ -1,0 +1,16 @@
+language: ruby
+
+rvm:
+  - 1.9.3
+  - 2.1
+  - 2.2
+  - ruby-head
+  - jruby-19mode
+
+before_install:
+  - echo "Updating rubygems"
+  - gem update --system
+  - echo "Updating bundler"
+  - gem update bundler
+
+script: rake build
