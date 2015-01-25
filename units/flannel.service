@@ -1,0 +1,11 @@
+[Unit]
+After=network-online.target
+Wants=network-online.target
+Description=flannel is an etcd backed overlay network for containers
+
+[Service]
+Type=notify
+ExecStartPre=-/usr/bin/mkdir -p /opt/bin
+ExecStartPre=/usr/bin/wget -N -P /opt/bin http://storage.googleapis.com/flannel/flanneld
+ExecStartPre=/usr/bin/chmod +x /opt/bin/flanneld
+ExecStart=/opt/bin/flanneld -etcd-endpoint http://10.0.0.101:4001 # Specify private IP of your etcd core os node
