@@ -11,6 +11,8 @@ coreos:
       mask: true
     - name: fleet.service
       command: start
+    - name: flannel.service
+      command: start
     - name: docker.service
       command: start
 write_files:
