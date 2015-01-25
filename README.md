@@ -89,3 +89,5 @@ tomaskorcak@kx-mac apollon$ apollon version
 - [fleetctl client documentation](https://github.com/coreos/fleet/blob/master/Documentation/using-the-client.md)
 - [CoreOS Architectures](https://coreos.com/docs/cluster-management/setup/cluster-architectures/)
 - [Coreos, Kubernetes and DigitalOcean](https://github.com/bketelsen/coreos-kubernetes-digitalocean)
+- [Fleet Deployment and Configuration](https://github.com/coreos/fleet/blob/master/Documentation/deployment-and-configuration.md)
+- [Flannel Official Documentation](https://github.com/coreos/flannel/blob/master/README.md)
