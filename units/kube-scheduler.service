@@ -11,4 +11,4 @@ RestartSec=10
 
 [X-Fleet]
 MachineOf=kube-apiserver.service
-# MachineMetadata=role=kubernetes
+MachineMetadata=role=kubernetes
