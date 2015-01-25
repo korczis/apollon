@@ -1,8 +1,8 @@
 [Unit]
 Description=Kubernetes Kubelet
 Documentation=https://github.com/GoogleCloudPlatform/kubernetes
-Requires=setup-network-environment.service
-After=setup-network-environment.service
+# Requires=setup-network-environment.service
+# After=setup-network-environment.service
 
 [Service]
 EnvironmentFile=/etc/network-environment
