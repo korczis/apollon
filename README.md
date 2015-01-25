@@ -84,5 +84,8 @@ tomaskorcak@kx-mac apollon$ apollon version
 ## Reference
 
 - [Kubernetes Fleet Flannel](https://github.com/kelseyhightower/kubernetes-fleet-tutorial)
+- [Kubernetes on CoreOS](https://github.com/kelseyhightower/kubernetes-coreos)
 - [How to use fleet and fleetctl to manage your coreos cluster](https://www.digitalocean.com/community/tutorials/how-to-use-fleet-and-fleetctl-to-manage-your-coreos-cluster)
 - [fleetctl client documentation](https://github.com/coreos/fleet/blob/master/Documentation/using-the-client.md)
+- [CoreOS Architectures](https://coreos.com/docs/cluster-management/setup/cluster-architectures/)
+- [Coreos, Kubernetes and DigitalOcean](https://github.com/bketelsen/coreos-kubernetes-digitalocean)
