@@ -1,0 +1,63 @@
+#cloud-config
+
+coreos:
+  fleet:
+    etcd_servers: http://192.168.12.10:4001
+    metadata: role=kubernetes
+  units:
+    - name: etcd.service
+      mask: true
+    - name: fleet.service
+      command: start
+    - name: flannel.service
+      command: start
+      content: |
+        [Unit]
+        After=network-online.target 
+        Wants=network-online.target
+        Description=flannel is an etcd backed overlay network for containers
+
+        [Service]
+        Type=notify
+        ExecStartPre=-/usr/bin/mkdir -p /opt/bin
+        ExecStartPre=/usr/bin/wget -N -P /opt/bin http://storage.googleapis.com/flannel/flanneld
+        ExecStartPre=/usr/bin/chmod +x /opt/bin/flanneld
+        ExecStart=/opt/bin/flanneld -etcd-endpoint http://192.168.12.10:4001
+    - name: docker.service
+      command: start
+      content: |
+        [Unit]
+        After=flannel.service
+        Wants=flannel.service
+        Description=Docker Application Container Engine
+        Documentation=http://docs.docker.io
+
+        [Service]
+        EnvironmentFile=/run/flannel/subnet.env
+        ExecStartPre=/bin/mount --make-rprivate /
+        ExecStart=/usr/bin/docker -d --bip=${FLANNEL_SUBNET} --mtu=${FLANNEL_MTU} -s=btrfs -H fd://
+
+        [Install]
+        WantedBy=multi-user.target
+    - name: setup-network-environment.service
+      command: start
+      content: |
+        [Unit]
+        Description=Setup Network Environment
+        Documentation=https://github.com/kelseyhightower/setup-network-environment
+        Requires=network-online.target
+        After=network-online.target
+
+        [Service]
+        ExecStartPre=-/usr/bin/mkdir -p /opt/bin
+        ExecStartPre=/usr/bin/wget -N -P /opt/bin http://storage.googleapis.com/snenv/setup-network-environment 
+        ExecStartPre=/usr/bin/chmod +x /opt/bin/setup-network-environment
+        ExecStart=/opt/bin/setup-network-environment
+        RemainAfterExit=yes
+        Type=oneshot
+  update:
+    group: alpha
+    reboot-strategy: off
+ssh_authorized_keys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB09q11KKRPQDrioesdIQRst7FLZMmSNUBvS7GCvUapAZ253QMO1+akEletdrFMtnZ53FG+r756hWUG5157Xq3p2RJkM9/vI9MIovTM0SnzP7mHwvrzRThomZ600l4on8Xi/pET47dkV9MxADR/RAKo5cmc3N1/jYhB8v5U18AfDGYKBpqvp2yyIOX0Ems8ULFzNAnUXWqFWS2sQxZmVp69Y18gxYZ9iqtxEK8vGjLKkJpPnkyceqmVfydgoTCAHdpgmALgjtSmUsrvpCugpJ/1G/gAR6JOoxM75yf3/1lji/cWlUyeQZfa9E+yj6R8Cd3pd9BjwC14l7qjhP+JBkh korczis@gmail.com
+

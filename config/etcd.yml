@@ -1,0 +1,36 @@
+#cloud-config
+
+hostname: etcd
+coreos:
+  fleet:
+    etcd_servers: http://127.0.0.1:4001
+    metadata: role=etcd
+  etcd:
+    name: etcd
+    addr: 192.168.12.10:4001
+    bind-addr: 0.0.0.0
+    peer-addr: 192.168.12.10:7001
+    cluster-active-size: 1
+    snapshot: true
+  units:
+    - name: static.network
+      command: start
+      content: |
+        [Match]
+        Name=eno16777736
+
+        [Network]
+        Address=192.168.12.10/24
+        DNS=192.168.12.2
+        Gateway=192.168.12.2
+    - name: etcd.service
+      command: start
+    - name: fleet.service
+      command: start
+    - name: docker.service
+      mask: true
+  update:
+    group: alpha
+    reboot-strategy: off
+ssh_authorized_keys:
+    - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB09q11KKRPQDrioesdIQRst7FLZMmSNUBvS7GCvUapAZ253QMO1+akEletdrFMtnZ53FG+r756hWUG5157Xq3p2RJkM9/vI9MIovTM0SnzP7mHwvrzRThomZ600l4on8Xi/pET47dkV9MxADR/RAKo5cmc3N1/jYhB8v5U18AfDGYKBpqvp2yyIOX0Ems8ULFzNAnUXWqFWS2sQxZmVp69Y18gxYZ9iqtxEK8vGjLKkJpPnkyceqmVfydgoTCAHdpgmALgjtSmUsrvpCugpJ/1G/gAR6JOoxM75yf3/1lji/cWlUyeQZfa9E+yj6R8Cd3pd9BjwC14l7qjhP+JBkh korczis@gmail.com
