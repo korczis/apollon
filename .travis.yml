@@ -7,6 +7,9 @@ rvm:
   - ruby-head
   - jruby-19mode
 
+env:
+  - TRAVIS_BUILD=true
+
 before_install:
   - echo "Updating rubygems"
   - gem update --system

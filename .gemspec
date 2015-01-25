@@ -35,8 +35,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rake', '~> 10.4', '>= 10.4.0'
   s.add_dependency 'terminal-table', '~> 1.4', '>= 1.4.5'
 
-  s.add_development_dependency 'debase'
-  s.add_development_dependency 'ruby-debug-ide'
+  s.add_development_dependency 'debase' unless ENV['TRAVIS_BUILD']
+  s.add_development_dependency 'ruby-debug-ide' unless ENV['TRAVIS_BUILD']
 
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
   s.add_development_dependency 'rspec', '~> 3.1', '>= 3.1.0'
