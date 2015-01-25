@@ -18,7 +18,7 @@ module Apollon
         init_dir
 
         @client = client
-        @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth-config.yml')
+        @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth.yml')
         @config = YAML.load_file(@config_path)
 
         @auth_path = File.join(CONFIG_DIR, 'auth.json')
