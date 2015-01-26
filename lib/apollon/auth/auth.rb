@@ -80,7 +80,6 @@ module Apollon
         FileUtils.mkdir_p(dir) unless File.directory?(dir)
       end
 
-
       def load(path = auth_path)
         @raw = Auth.load(path)
       end
@@ -101,7 +100,7 @@ module Apollon
       end
 
       def providers_names
-        providers.keys
+        @raw.keys
       end
 
       def write

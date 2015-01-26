@@ -18,7 +18,8 @@ command :machine do |c|
   c.command :list do |cmd|
     cmd.action do
       client.cluster.machines.each do |machine|
-        pp machine.raw
+        puts "#{machine.public_ip_address} - #{machine.private_ip_address} = #{machine.flavor.name}"
+        # puts machine
       end
     end
   end

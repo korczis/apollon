@@ -1,19 +1,15 @@
 # encoding: UTF-8
 
-require 'pathname'
+require_relative 'version'
 
-# require_relative 'cli/cli'
+require_relative 'auth/auth'
 
-base = Pathname(__FILE__).dirname.expand_path
+require_relative 'client/client'
 
-res = []
+require_relative 'cluster/cluster'
 
-Dir.glob(base + '*.rb').each do |file|
-  loaded_file = require file
-  res << {
-    :file => file,
-    :loaded => loaded_file
-  }
-end
+require_relative 'machine/machine'
 
-res
+require_relative 'provider/aws'
+require_relative 'provider/digital_ocean'
+require_relative 'provider/provider_base'
