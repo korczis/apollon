@@ -18,7 +18,7 @@ command :provider do |c|
   c.desc 'List existing providers'
   c.command :list do |cmd|
     cmd.action do
-      res = client.auth.providers_names
+      res = client.auth.providers
 
       res.compact!
 

@@ -9,9 +9,11 @@ require 'yaml'
 module Apollon
   module Auth
     class Auth
-      attr_reader :auth_path, :client, :config, :config_path, :dir, :raw
+      attr_reader :auth_config, :auth_path, :client, :config, :config_path, :dir, :raw
 
       CONFIG_DIR = File.expand_path('~/.apollon')
+
+      PROVIDERS =  %w(Aws Digital_Ocean)
 
       def initialize(client, config_path = nil)
         @dir = File.expand_path(CONFIG_DIR)
@@ -19,17 +21,14 @@ module Apollon
 
         @client = client
         @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth.yml')
-        @config = YAML.load_file(@config_path)
+        @auth_config = YAML.load_file(@config_path)
 
         @auth_path = File.join(CONFIG_DIR, 'auth.json')
         load
 
         # Instances of provider implementations
-        @provider_instances = {}
+        create_providers
       end
-
-      alias_method :providers, :raw
-      alias_method :show, :raw
 
       class << self
         def init(config)
@@ -71,8 +70,8 @@ module Apollon
         end
       end
 
-      def init(init_config = config)
-        @raw = Auth.init(init_config)
+      def init(init_config = auth_config)
+        @config = Auth.init(init_config)
         write # returns raw
       end
 
@@ -81,14 +80,36 @@ module Apollon
       end
 
       def load(path = auth_path)
-        @raw = Auth.load(path)
+        @config = Auth.load(path)
       end
 
       alias_method :load_config, :load
 
       def provider(name)
         canonical_name = name.downcase
-        unless @provider_instances.key?(canonical_name)
+        @provider_instances[canonical_name]
+      end
+
+      def providers
+        @provider_instances
+      end
+
+      def providers_names
+        @config.keys
+      end
+
+      def write
+        # Generate pretty JSON representation
+        Auth.write(auth_path, @config)
+        @config
+      end
+
+      private
+
+      def create_providers
+        @provider_instances = {}
+        PROVIDERS.each do |name|
+          canonical_name = name.downcase
           file_name = name.underscore
           file_path = File.expand_path(File.join(File.dirname(__FILE__), '..', "provider/#{file_name}.rb"))
           require file_path
@@ -96,17 +117,7 @@ module Apollon
           klass = Object.const_get('Apollon').const_get('Provider').const_get(class_name)
           @provider_instances[canonical_name] = klass.new(self)
         end
-        @provider_instances[canonical_name]
-      end
-
-      def providers_names
-        @raw.keys
-      end
-
-      def write
-        # Generate pretty JSON representation
-        Auth.write(auth_path, raw)
-        raw
+        @provider_instances
       end
     end
   end

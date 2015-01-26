@@ -5,7 +5,9 @@ require 'pp'
 
 module Apollon
   module Provider
+    # Base class for specific Providers
     class ProviderBase
+      # Generic Provider Machine
       class Machine
         attr_reader :provider, :machine
 
@@ -33,12 +35,16 @@ module Apollon
 
       def initialize(client)
         @client = client
-        @config = client.providers[self.class.to_s.split('::').last]
+        @config = client.config[self.class.to_s.split('::').last]
         self
       end
 
-      def machines
-        @compute.servers.all.to_a.map { |m| self.class.const_get('Machine').new(self, m) }
+      def machines(force_refresh = false)
+        if @machines.nil? || force_refresh
+          klass = self.class.const_get('Machine')
+          @machines = @compute.servers.all.to_a.pmap { |m| klass.new(self, m) }
+        end
+        @machines
       end
     end
   end
