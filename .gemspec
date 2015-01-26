@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.version = Apollon::VERSION
   # s.platform = Gem::Platform::RUBY
   s.summary = 'Your own personal cluster built on top of the cloud.'
-  s.description = 'Your own personal cluster built on top of the cloud.'
+  s.description = 'Your own personal cluster built on top of the cloud - CoreOs, Fleet, Flannel, Kubernetes'
   s.authors = [
     'Tomas Korcak'
   ]
@@ -35,8 +35,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'rake', '~> 10.4', '>= 10.4.0'
   s.add_dependency 'terminal-table', '~> 1.4', '>= 1.4.5'
 
-  s.add_development_dependency 'debase' unless ENV['TRAVIS_BUILD']
-  s.add_development_dependency 'ruby-debug-ide' unless ENV['TRAVIS_BUILD']
+  s.add_development_dependency 'debase', '~> 0.1', '0.1.1' unless ENV['TRAVIS_BUILD']
+  s.add_development_dependency 'ruby-debug-ide', '~> 0.4', '0.4.25' unless ENV['TRAVIS_BUILD']
 
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
   s.add_development_dependency 'rspec', '~> 3.1', '>= 3.1.0'
