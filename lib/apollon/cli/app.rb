@@ -5,35 +5,35 @@ require 'pathname'
 require 'pp'
 
 require_relative 'shared'
+
 require_relative '../version'
 
 def launch(argv = ARGV)
-  run(argv)
+  Apollon::Cli.main(argv)
 end
 
-include GLI::App
+# include GLI::App
 
-program_desc "Apollon #{Apollon::VERSION}"
+#
 
 module Apollon
   # Apollon CLI
   module Cli
-    # CLI Application
-    class App
-      extend Apollon::Cli::Shared
+    extend Apollon::Cli
 
-      cmds = File.absolute_path(File.join(File.dirname(__FILE__), 'cmd'))
-      Dir.glob(cmds + '/*.rb').each do |file|
-        require file
-      end
+    program_desc "Apollon #{Apollon::VERSION}"
 
-      program_desc 'Apollon'
+    cmds = File.absolute_path(File.join(File.dirname(__FILE__), 'cmd'))
+    Dir.glob(cmds + '/*.rb').each do |file|
+      require file
+    end
 
-      def main(argv = ARGV)
-        launch(argv)
-      end
+    def main(argv = ARGV)
+      run(argv)
     end
   end
 end
 
-launch
+if __FILE__ == $PROGRAM_NAME
+  launch(ARGV)
+end

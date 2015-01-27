@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'gli', '~> 2.12', '>= 2.12.0'
   s.add_dependency 'json_pure', '~> 1.8', '>= 1.8.0'
   s.add_dependency 'multi_json', '~> 1.10', '>= 1.10.0'
+  s.add_dependency 'pmap', '~> 1.0', '>= 1.0.2'
   s.add_dependency 'rake', '~> 10.4', '>= 10.4.0'
   s.add_dependency 'terminal-table', '~> 1.4', '>= 1.4.5'
 
@@ -40,6 +41,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
   s.add_development_dependency 'rspec', '~> 3.1', '>= 3.1.0'
+  s.add_development_dependency 'rake-notes', '~> 0.2', '>= 0.2.0'
   s.add_development_dependency 'rubocop', '~> 0.28', '>= 0.28.0'
   s.add_development_dependency 'simplecov', '~> 0.9', '>= 0.9.1'
 end

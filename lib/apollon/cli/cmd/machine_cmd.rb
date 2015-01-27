@@ -5,26 +5,28 @@ require 'json'
 require 'pp'
 require 'terminal-table'
 
-include GLI::App
-
+require_relative '../../client/client'
 require_relative '../shared'
 
-require_relative '../../client/client'
+module Apollon
+  # Apollon CLI
+  module Cli
+    client = Apollon::Client.new
 
-client = Apollon::Client.new
+    desc 'Machine(s) manager'
+    command :machine do |c|
+      c.desc 'List existing machines'
+      c.command :list do |cmd|
+        cmd.action do |global_options, options, args|
+          args = args.nil? || args.empty? ? client.auth.providers_names : args
+          res = []
+          client.cluster.machines(args).each do |machine|
+            res << machine.as_json
+          end
 
-desc 'Machine(s) manager'
-command :machine do |c|
-  c.desc 'List existing machines'
-  c.command :list do |cmd|
-    cmd.action do |global_options, options, args|
-      args = args.nil? || args.empty? ? client.auth.providers_names : args
-      res = []
-      client.cluster.machines(args).each do |machine|
-        res << machine.as_json
+          puts JSON.pretty_generate(res)
+        end
       end
-
-      puts JSON.pretty_generate(res)
     end
   end
 end

@@ -4,9 +4,6 @@ require 'gli'
 
 module Apollon
   module Cli
-    # Shared CLI Stuff
-    module Shared
-      extend GLI::App
-    end
+    extend GLI::App
   end
 end

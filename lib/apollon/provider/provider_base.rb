@@ -25,7 +25,8 @@ module Apollon
             private_ip_address: private_ip_address,
             flavor: flavor.name,
             provider: provider.name,
-            region: region
+            region: region,
+            id: id
           }
         end
 

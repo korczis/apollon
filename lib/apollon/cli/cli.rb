@@ -2,6 +2,4 @@
 
 require 'pathname'
 
-require_relative 'shared'
-
 require_relative 'app'
