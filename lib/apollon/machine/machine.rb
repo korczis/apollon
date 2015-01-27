@@ -16,9 +16,16 @@ module Apollon
         @client = client
       end
 
-      def list
-        res = client.auth.providers.keys.map do |provider_name|
-          provider = client.auth.provider(provider_name)
+      def list(ids = :all)
+        providers = []
+        if ids == :all
+          providers = client.auth.providers
+        else
+          machines = ids.map { |m| m.downcase}
+          providers = client.auth.providers.values.select { |p| machines.include?(p.name.downcase) }
+        end
+
+        res = providers.map do |provider|
           provider.machines
         end
         res.flatten

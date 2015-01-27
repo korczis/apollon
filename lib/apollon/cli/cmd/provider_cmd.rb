@@ -18,7 +18,7 @@ command :provider do |c|
   c.desc 'List existing providers'
   c.command :list do |cmd|
     cmd.action do
-      res = client.auth.providers
+      res = client.auth.providers.map { |_provider_name, provider| provider.name }
 
       res.compact!
 
@@ -32,8 +32,10 @@ command :provider do |c|
       args = args.nil? || args.empty? ? client.auth.providers_names : args
       res = {}
       args.each do |provider_name|
-        val = client.auth.config.select { |k,v| k.downcase == provider_name.downcase }
-        res.merge!(val) if val
+        val = client.auth.providers.values.select { |provider| provider.name.downcase == provider_name.downcase }.first
+        if val
+          res[val.name] = val.as_json
+        end
       end
 
       puts JSON.pretty_generate(res)

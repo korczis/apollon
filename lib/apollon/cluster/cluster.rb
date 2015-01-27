@@ -16,8 +16,8 @@ module Apollon
         @client = client
       end
 
-      def machines
-        client.machine.list
+      def machines(ids = :all)
+        client.machine.list(ids)
       end
     end
   end

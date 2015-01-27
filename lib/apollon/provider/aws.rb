@@ -8,10 +8,6 @@ module Apollon
   module Provider
     class Aws < ProviderBase
       class Machine < ProviderBase::Machine
-        def initialize(provider, compute, machine = nil)
-          super(provider, machine)
-          @compute = compute
-        end
       end
 
       REGIONS = %w(
@@ -59,6 +55,10 @@ module Apollon
           @machines = res.reduce([], :+)
         end
         @machines
+      end
+
+      def regions
+        REGIONS
       end
     end
   end

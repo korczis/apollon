@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'gli'
+require 'json'
 require 'pp'
 require 'terminal-table'
 
@@ -16,11 +17,14 @@ desc 'Machine(s) manager'
 command :machine do |c|
   c.desc 'List existing machines'
   c.command :list do |cmd|
-    cmd.action do
-      client.cluster.machines.each do |machine|
-        puts "#{machine.public_ip_address} - #{machine.private_ip_address} = #{machine.flavor.name}"
-        # puts machine
+    cmd.action do |global_options, options, args|
+      args = args.nil? || args.empty? ? client.auth.providers_names : args
+      res = []
+      client.cluster.machines(args).each do |machine|
+        res << machine.as_json
       end
+
+      puts JSON.pretty_generate(res)
     end
   end
 end

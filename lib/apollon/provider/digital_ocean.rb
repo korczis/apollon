@@ -9,6 +9,16 @@ module Apollon
       class Machine < ProviderBase::Machine
       end
 
+      REGIONS = %w(
+        ams2
+        ams3
+        lon1
+        nyc2
+        nyc3
+        sfo1
+        sgp1
+      )
+
       def initialize(client)
         super(client)
 
@@ -20,6 +30,10 @@ module Apollon
 
         @compute = Fog::Compute.new(opts)
         self
+      end
+
+      def regions
+        REGIONS
       end
     end
   end
