@@ -16,4 +16,4 @@ before_install:
   - echo "Updating bundler"
   - gem update bundler
 
-script: rake build
+script: rake ci
