@@ -11,6 +11,10 @@ require 'rake/testtask'
 require 'rake/notes/rake_task'
 require 'rspec/core/rake_task'
 
+require 'yard'
+
+Coveralls::RakeTask.new
+
 RSpec::Core::RakeTask.new(:test)
 
 desc 'Run Rubocop'
@@ -29,8 +33,10 @@ desc 'Run continuous integration test'
 task :ci do
   Rake::Task['test'].invoke
   # Rake::Task['test:cop'].invoke if RUBY_VERSION.start_with?('2.2') == false
-  # Rake::Task['coveralls:push'].invoke
+  Rake::Task['coveralls:push'].invoke
 end
+
+YARD::Rake::YardocTask.new
 
 if $0 == __FILE__
   Rake.application['usage'].invoke

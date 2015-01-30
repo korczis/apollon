@@ -11,7 +11,7 @@ require_relative '../shared'
 module Apollon
   # Apollon CLI
   module Cli
-    client = Apollon::Client.new
+    client = Apollon::Client::Client.new
 
     desc 'Authentication'
     command :auth do |c|

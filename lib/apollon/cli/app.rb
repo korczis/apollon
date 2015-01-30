@@ -12,10 +12,6 @@ def launch(argv = ARGV)
   Apollon::Cli.main(argv)
 end
 
-# include GLI::App
-
-#
-
 module Apollon
   # Apollon CLI
   module Cli

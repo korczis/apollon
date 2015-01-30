@@ -7,7 +7,8 @@ require 'terminal-table'
 require_relative '../../client/client'
 require_relative '../shared'
 
-client = Apollon::Client.new
+# TODO: Replace with unified constructor
+client = Apollon::Client::Client.new
 
 module Apollon
   # Apollon CLI

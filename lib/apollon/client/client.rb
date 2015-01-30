@@ -8,20 +8,22 @@ require_relative '../version'
 
 # Apollon module
 module Apollon
-  class Client
-    attr_reader :auth, :cluster, :machine
+  module Client
+    class Client
+      attr_reader :auth, :cluster, :machine
 
-    def initialize
-      @auth = Auth::Auth.new(self)
+      def initialize
+        @auth = Auth::Auth.new(self)
 
-      @cluster = Cluster::Cluster.new(self)
+        @cluster = Apollon::Cluster::Cluster.new(self)
 
-      @machine = Machine::Machine.new(self)
-      self
-    end
+        @machine = Machine::Machine.new(self)
+        self
+      end
 
-    def version
-      Apollon::VERSION
+      def version
+        Apollon::VERSION
+      end
     end
   end
 end
