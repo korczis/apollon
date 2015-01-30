@@ -5,6 +5,7 @@ Your own personal cluster built on top of the cloud.
 ## Status
 
 [![Build Status](https://travis-ci.org/korczis/apollon.svg?branch=master)](https://travis-ci.org/korczis/apollon)
+[![Code Climate](https://codeclimate.com/github/korczis/apollon/badges/gpa.svg)](https://codeclimate.com/github/korczis/apollon)
 [![Coverage Status](https://coveralls.io/repos/korczis/apollon/badge.svg?branch=master)](https://coveralls.io/r/korczis/apollon?branch=master)
 
 ## Prerequisites
