@@ -9,11 +9,12 @@ module Apollon
     class ProviderBase
       # Generic Provider Machine
       class Machine
-        attr_reader :compute, :machine, :provider
+        attr_reader :config, :compute, :machine, :provider
 
         alias_method :raw, :machine
 
         def initialize(provider, compute = nil, machine = nil)
+          @config = {}
           @provider = provider
           @compute = compute
           @machine = machine
