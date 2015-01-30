@@ -2,6 +2,10 @@
 
 Your own personal cluster built on top of the cloud.
 
+## Status
+
+[![Build Status](https://travis-ci.org/korczis/apollon.svg?branch=master)](https://travis-ci.org/korczis/apollon)
+
 ## Prerequisites
 
 - CoreOS
