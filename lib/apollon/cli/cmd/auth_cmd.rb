@@ -8,10 +8,11 @@ require_relative '../../client/client'
 
 require_relative '../shared'
 
-client = Apollon::Client.new
 module Apollon
   # Apollon CLI
   module Cli
+    client = Apollon::Client.new
+
     desc 'Authentication'
     command :auth do |c|
       c.desc 'Initialize authentication credentials'
