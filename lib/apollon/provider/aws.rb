@@ -62,7 +62,7 @@ module Apollon
       end
 
       def regions
-        REGIONS
+         REGIONS
       end
     end
   end

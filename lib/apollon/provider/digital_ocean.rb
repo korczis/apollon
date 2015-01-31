@@ -34,6 +34,7 @@ module Apollon
 
       def regions
         REGIONS
+         # @regions ||= @compute.regions.map(&:slug)
       end
     end
   end

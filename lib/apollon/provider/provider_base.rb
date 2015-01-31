@@ -54,7 +54,7 @@ module Apollon
       DEFAULT_OPTS = {
       }
 
-      attr_reader :client, :config, :opts
+      attr_reader :client, :compute, :config, :opts
 
       def initialize(client, opts = DEFAULT_OPTS)
         @client = client
@@ -81,6 +81,11 @@ module Apollon
       def name
         self.class.to_s.split('::').last
       end
+
+      def regions
+        @regions ||= @compute.regions
+      end
+
     end
   end
 end
