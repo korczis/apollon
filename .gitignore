@@ -5,4 +5,6 @@
 Gemfile.lock
 
 # Built gem
+coverage/
+doc/
 pkg/
