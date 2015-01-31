@@ -30,7 +30,7 @@ module Apollon
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = {}
           args.each do |provider_name|
-            val = client.auth.providers.values.select { |provider| provider.name.downcase == provider_name.downcase }.first
+            val = client.auth.providers.select { |provider| provider.name.downcase == provider_name.downcase }.first
             if val
               res[val.name] = val.as_json
             end

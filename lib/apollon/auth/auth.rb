@@ -16,7 +16,7 @@ module Apollon
         auth_config: File.join(Apollon::Client::Client.app_data_dir, 'auth.json')
       }
 
-      PROVIDERS = %w(Aws Digital_Ocean)
+      PROVIDERS = %w(Aws DigitalOcean)
 
       attr_reader :auth_config, :auth_path, :client, :config, :opts
 

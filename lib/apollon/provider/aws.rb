@@ -27,9 +27,9 @@ module Apollon
       }
 
       def initialize(client, opts = DEFAULT_OPTS)
-        opts = DEFAULT_OPTS.merge(opts)
+        @opts = DEFAULT_OPTS.merge(opts)
 
-        super
+        super(client, @opts)
 
         fail 'config not initialized!' if config.nil?
         fail ArgumentError, "No config['key'] specified!" if config['key'].empty?
