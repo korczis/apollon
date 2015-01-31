@@ -8,9 +8,6 @@ require 'terminal-table'
 require_relative '../../client/client'
 require_relative '../shared'
 
-# TODO: Replace with unified constructor
-client = Apollon::Client::Client.new
-
 module Apollon
   # Apollon CLI
   module Cli
@@ -21,6 +18,8 @@ module Apollon
         cmd.action do |global_options, options, args|
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = []
+          # TODO: Replace with unified constructor
+          client = Apollon::Client::Client.new
           client.cluster.machines(args).each do |machine|
             res << machine.as_json
           end

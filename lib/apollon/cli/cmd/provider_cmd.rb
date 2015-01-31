@@ -8,9 +8,6 @@ require 'terminal-table'
 require_relative '../../client/client'
 require_relative '../shared'
 
-# TODO: Replace with unified constructor
-client = Apollon::Client::Client.new
-
 module Apollon
   # Apollon CLI
   module Cli
@@ -19,6 +16,8 @@ module Apollon
       c.desc 'List existing providers'
       c.command :list do |cmd|
         cmd.action do
+          # TODO: Replace with unified constructor
+          client = Apollon::Client::Client.new
           res = client.auth.providers.map { |_provider_name, provider| provider.name }
 
           res.compact!
@@ -32,6 +31,8 @@ module Apollon
         cmd.action do |global_options, options, args|
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = {}
+          # TODO: Replace with unified constructor
+          client = Apollon::Client::Client.new
           args.each do |provider_name|
             val = client.auth.providers.values.select { |provider| provider.name.downcase == provider_name.downcase }.first
             if val

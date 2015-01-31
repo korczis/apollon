@@ -55,7 +55,7 @@ module Apollon
 
       def initialize(client)
         @client = client
-        @config = client.config[name]
+        @config = client.config[name] || {}
         self
       end
 

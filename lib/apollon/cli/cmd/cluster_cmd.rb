@@ -7,9 +7,6 @@ require 'terminal-table'
 require_relative '../../client/client'
 require_relative '../shared'
 
-# TODO: Replace with unified constructor
-client = Apollon::Client::Client.new
-
 module Apollon
   # Apollon CLI
   module Cli
@@ -19,6 +16,8 @@ module Apollon
       c.desc 'Show information about cluster'
       c.command :show do |cmd|
         cmd.action do
+          # TODO: Replace with unified constructor
+          client = Apollon::Client::Client.new
           client.cluster.machines.each do |machine|
             pp machine.raw
           end

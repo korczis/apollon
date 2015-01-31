@@ -27,6 +27,10 @@ module Apollon
       }
 
       def initialize(client, opts = DEFAULT_OPTS)
+        fail 'config not initialized!' if config.nil? || config.empty?
+        fail ArgumentError, "No config['key'] specified!" if config['key'].empty?
+        fail ArgumentError, "No config['secret'] specified!" if config['secret'].empty?
+
         super(client)
 
         opts = DEFAULT_OPTS.merge(opts)
