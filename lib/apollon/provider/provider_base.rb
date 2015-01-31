@@ -58,7 +58,7 @@ module Apollon
 
       def initialize(client, opts = DEFAULT_OPTS)
         @client = client
-        @config = client.config[name] || {}
+        @config = client.config[name] ||= {}
         @opts = DEFAULT_OPTS.merge(opts)
         self
       end

@@ -18,21 +18,17 @@ module Apollon
         cmd.action do
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
-          res = client.auth.providers.map { |provider| provider.name }
-
-          res.compact!
-
-          puts JSON.pretty_generate(res)
+          puts JSON.pretty_generate(client.auth.providers.map(&:as_json))
         end
       end
 
       c.desc 'Show provider details'
       c.command :show do |cmd|
         cmd.action do |global_options, options, args|
-          args = args.nil? || args.empty? ? client.auth.providers_names : args
-          res = {}
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
+          args = args.nil? || args.empty? ? client.auth.providers_names : args
+          res = {}
           args.each do |provider_name|
             val = client.auth.providers.values.select { |provider| provider.name.downcase == provider_name.downcase }.first
             if val

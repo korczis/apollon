@@ -107,6 +107,8 @@ module Apollon
       def create_providers(providers_to_create = PROVIDERS)
         @provider_instances = {}
         providers_to_create.each do |name|
+          next unless config.include?(name)
+
           canonical_name = name.downcase
           file_name = name.underscore
           file_path = File.expand_path(File.join(File.dirname(__FILE__), '..', "provider/#{file_name}.rb"))

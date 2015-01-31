@@ -31,7 +31,7 @@ module Apollon
 
         super
 
-        fail 'config not initialized!' if config.nil? || config.empty?
+        fail 'config not initialized!' if config.nil?
         fail ArgumentError, "No config['key'] specified!" if config['key'].empty?
         fail ArgumentError, "No config['secret'] specified!" if config['secret'].empty?
 
