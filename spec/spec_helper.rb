@@ -1,12 +1,12 @@
 # encoding: UTF-8
 
 require 'simplecov'
-require 'pmap'
-require 'rspec'
 require 'coveralls'
 require 'pathname'
 
 Coveralls.wear_merged!
+
+require 'apollon'
 
 # Automagically include all helpers/*_helper.rb
 
@@ -49,6 +49,7 @@ SimpleCov.start do
   add_group 'CLI', 'lib/apollon/cli'
   add_group 'Client', 'lib/apollon/client'
   add_group 'Cluster', 'lib/apollon/cluster'
+  add_group 'Logger', 'lib/apollon/logger'
   add_group 'Machine', 'lib/apollon/machine'
   add_group 'Provider', 'lib/apollon/provider'
 end
