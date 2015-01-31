@@ -18,7 +18,7 @@ module Apollon
         cmd.action do
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
-          res = client.auth.providers.map { |_provider_name, provider| provider.name }
+          res = client.auth.providers.map { |provider| provider.name }
 
           res.compact!
 

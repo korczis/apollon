@@ -5,26 +5,28 @@ require 'json'
 require 'pp'
 require 'yaml'
 
+require_relative '../client/client'
+
 # Apollon module
 module Apollon
   module Auth
     class Auth
-      attr_reader :auth_config, :auth_path, :client, :config, :config_path, :dir, :raw
+      DEFAULT_OPTS = {
+        auth_config_settings: File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth.yml'),
+        auth_config: File.join(Apollon::Client::Client.app_data_dir, 'auth.json')
+      }
 
-      CONFIG_DIR = File.expand_path('~/.apollon')
+      PROVIDERS = %w(Aws Digital_Ocean)
 
-      PROVIDERS =  %w(Aws Digital_Ocean)
+      attr_reader :auth_config, :auth_path, :client, :config, :opts
 
-      def initialize(client, config_path = nil)
-        @dir = File.expand_path(CONFIG_DIR)
-        init_dir
-
+      def initialize(client, opts = DEFAULT_OPTS)
         @client = client
-        @config_path = config_path || File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth.yml')
-        @auth_config = YAML.load_file(@config_path)
 
-        @auth_path = File.join(CONFIG_DIR, 'auth.json')
-        load
+        @opts = DEFAULT_OPTS.merge(opts)
+
+        @auth_config = YAML.load_file(@opts[:auth_config_settings])
+        load_auth_config(@opts[:auth_config])
 
         # Instances of provider implementations
         create_providers
@@ -75,12 +77,8 @@ module Apollon
         write # returns raw
       end
 
-      def init_dir
-        FileUtils.mkdir_p(dir) unless File.directory?(dir)
-      end
-
-      def load(path = auth_path)
-        @config = Auth.load(path)
+      def load_auth_config(conf = auth_config)
+        @config = Auth.load(conf)
       end
 
       alias_method :load_config, :load
@@ -91,7 +89,7 @@ module Apollon
       end
 
       def providers
-        @provider_instances
+        @provider_instances.values
       end
 
       def providers_names
@@ -106,9 +104,9 @@ module Apollon
 
       private
 
-      def create_providers
+      def create_providers(providers_to_create = PROVIDERS)
         @provider_instances = {}
-        PROVIDERS.each do |name|
+        providers_to_create.each do |name|
           canonical_name = name.downcase
           file_name = name.underscore
           file_path = File.expand_path(File.join(File.dirname(__FILE__), '..', "provider/#{file_name}.rb"))

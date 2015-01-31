@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'fog', '~> 1.27', '>= 1.27.0'
   s.add_dependency 'fleet-api', '~> 0.9', '>= 0.9.0'
   s.add_dependency 'gli', '~> 2.12', '>= 2.12.0'
+  s.add_dependency 'hashie', '~> 3.3', '>= 3.3.2'
   s.add_dependency 'json_pure', '~> 1.8', '>= 1.8.0'
   s.add_dependency 'multi_json', '~> 1.10', '>= 1.10.0'
   s.add_dependency 'pmap', '~> 1.0', '>= 1.0.2'

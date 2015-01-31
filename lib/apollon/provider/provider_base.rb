@@ -51,11 +51,15 @@ module Apollon
         end
       end
 
-      attr_reader :client, :config
+      DEFAULT_OPTS = {
+      }
 
-      def initialize(client)
+      attr_reader :client, :config, :opts
+
+      def initialize(client, opts = DEFAULT_OPTS)
         @client = client
         @config = client.config[name] || {}
+        @opts = DEFAULT_OPTS.merge(opts)
         self
       end
 

@@ -18,9 +18,7 @@ module Apollon
         cmd.action do
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
-          client.cluster.machines.each do |machine|
-            pp machine.raw
-          end
+          puts JSON.pretty_generate(client.cluster.machines.map(&:as_json))
         end
       end
     end

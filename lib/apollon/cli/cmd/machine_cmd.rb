@@ -16,6 +16,8 @@ module Apollon
       c.desc 'List existing machines'
       c.command :list do |cmd|
         cmd.action do |global_options, options, args|
+          # TODO: Replace with unified constructor
+          client = Apollon::Client::Client.new
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = []
           # TODO: Replace with unified constructor

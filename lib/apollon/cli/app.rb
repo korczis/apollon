@@ -19,9 +19,21 @@ module Apollon
 
     program_desc "Apollon #{Apollon::VERSION}"
 
-    cmds = File.absolute_path(File.join(File.dirname(__FILE__), 'cmd'))
-    Dir.glob(cmds + '/*.rb').each do |file|
-      require file
+    require_relative 'cmd/cmds'
+
+    post do |_global, _command, _options, _args|
+      # Post logic here
+      # Use skips_post before a command to skip this
+      # block on that command only
+    end
+
+    on_error do |exception|
+      # Error logic here
+      # return false to skip default error handling
+      # binding.pry
+      puts exception.backtrace
+      puts exception.inspect
+      true
     end
 
     def main(argv = ARGV)
@@ -33,3 +45,5 @@ end
 if __FILE__ == $PROGRAM_NAME
   launch(ARGV)
 end
+
+

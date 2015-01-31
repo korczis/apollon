@@ -22,7 +22,7 @@ module Apollon
           providers = client.auth.providers
         else
           machines = ids.map { |m| m.downcase}
-          providers = client.auth.providers.values.select { |p| machines.include?(p.name.downcase) }
+          providers = client.auth.providers.select { |p| machines.include?(p.name.downcase) }
         end
 
         res = providers.map do |provider|

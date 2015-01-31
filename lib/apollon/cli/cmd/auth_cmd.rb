@@ -25,6 +25,7 @@ module Apollon
       c.desc 'Show authentication credentials'
       c.command :show do |cmd|
         cmd.action do |global_options, options, args|
+          client = Apollon::Client::Client.new
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = {}
           args.each do |provider_name|
