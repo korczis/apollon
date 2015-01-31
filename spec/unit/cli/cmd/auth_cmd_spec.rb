@@ -2,9 +2,11 @@
 
 require 'apollon/cli/cli'
 
-describe 'apollon auth show' do
-  it 'Prints version' do
-    out = run_cli(['auth', 'show'])
-    expect(out).to be_a_kind_of(String)
+describe 'apollon auth' do
+  describe 'apollon auth show' do
+    it 'Shows auth info' do
+      out = run_cli(['auth', 'show'])
+      expect(out).to be_a_kind_of(String)
+    end
   end
 end
