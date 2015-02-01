@@ -8,7 +8,9 @@ require_relative '../version'
 
 # Apollon module
 module Apollon
+  # Apollon Cluster module
   module Cluster
+    # Apollon cluster command implementation
     class Cluster
       attr_reader :client
 

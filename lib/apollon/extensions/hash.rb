@@ -2,6 +2,7 @@
 
 require 'hashie'
 
+# Apollon Hash extensions
 class Hash
   include Hashie::Extensions::DeepMerge
 
@@ -32,7 +33,7 @@ class Hash
     hashes = map do |k, v|
       # dot notation to hash
       k.split('__').reverse.reduce(v) do |memo, obj|
-        {obj => memo}.extend(Hashie::Extensions::DeepMerge)
+        { obj => memo }.extend(Hashie::Extensions::DeepMerge)
       end
     end
 

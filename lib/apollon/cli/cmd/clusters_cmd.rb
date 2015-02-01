@@ -10,9 +10,8 @@ require_relative '../shared'
 module Apollon
   # Apollon CLI
   module Cli
-
-    desc 'High Level Cluster management'
-    command :cluster do |c|
+    desc 'High Level Clusters management'
+    command :clusters do |c|
       c.desc 'Show information about cluster'
       c.command :show do |cmd|
         cmd.action do

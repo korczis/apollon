@@ -42,8 +42,4 @@ module Apollon
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
-  launch(ARGV)
-end
-
-
+launch(ARGV) if __FILE__ == $PROGRAM_NAME

@@ -6,4 +6,3 @@ require_relative './version'
 require_relative './cli/cli'
 
 Apollon::Cli.main(ARGV)
-

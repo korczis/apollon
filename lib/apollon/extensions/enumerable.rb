@@ -2,9 +2,10 @@
 
 require 'pmap'
 
+# Apollon Enumerable extensions
 module Enumerable
   def mapcat(initial = [], &block)
-    reduce(initial) do |a, e|
+    each_with_object(initial) do |a, e|
       block.call(e).each do |x|
         a << x
       end
@@ -14,7 +15,7 @@ module Enumerable
 
   def pmapcat(initial = [], &block)
     intermediate = pmap(&block)
-    intermediate.reduce(initial) do |a, e|
+    intermediate.each_with_object(initial) do |a, e|
       e.each do |x|
         a << x
       end

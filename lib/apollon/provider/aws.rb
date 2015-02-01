@@ -4,9 +4,13 @@ require 'pmap'
 
 require_relative 'provider_base'
 
+# Apollon Module
 module Apollon
+  # Apollon Provider Module
   module Provider
+    # Apollon Aws Provider
     class Aws < ProviderBase
+      # Apollon Aws Machine
       class Machine < ProviderBase::Machine
       end
 
@@ -62,7 +66,7 @@ module Apollon
       end
 
       def regions
-         REGIONS
+        REGIONS
       end
     end
   end

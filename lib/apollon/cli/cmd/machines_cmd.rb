@@ -13,11 +13,11 @@ require_relative '../shared'
 module Apollon
   # Apollon CLI
   module Cli
-    desc 'Machine(s) manager'
-    command :machine do |c|
+    desc 'High Level Machines manager'
+    command :machines do |c|
       c.desc 'List existing machines'
       c.command :list do |cmd|
-        cmd.action do |global_options, options, args|
+        cmd.action do |_, _, args|
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
           args = args.nil? || args.empty? ? client.auth.providers_names : args
@@ -34,7 +34,7 @@ module Apollon
 
       c.desc 'Create new machine'
       c.command :create do |cmd|
-        cmd.action do |global_options, options, args|
+        cmd.action do |_, _, args|
           client = Apollon::Client::Client.new
           provider = client.auth.provider(args.first)
 
@@ -59,7 +59,7 @@ module Apollon
           # The new and improved choose()...
           say("\nCreating new machine...")
 
-          opts[:name] = ask("Name?")
+          opts[:name] = ask('Name?')
           choose do |menu|
             menu.prompt = 'Which image?'
             menu.choices(*images) do |val|
@@ -68,7 +68,7 @@ module Apollon
           end
 
           choose do |menu|
-            menu.prompt = 'Which size?'
+            menu.prompt = 'Which size? '
             menu.choices(*sizes) do |val|
               opts[:size] = val
             end

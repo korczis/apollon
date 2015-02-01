@@ -15,7 +15,7 @@ module Apollon
     command :auth do |c|
       c.desc 'Initialize authentication credentials'
       c.command :init do |cmd|
-        cmd.action do |global_options, options, args|
+        cmd.action do |_global_options, _options, _args|
           client = Apollon::Client::Client.new
           res = client.auth.init
           puts JSON.pretty_generate(res)
@@ -24,12 +24,12 @@ module Apollon
 
       c.desc 'Show authentication credentials'
       c.command :show do |cmd|
-        cmd.action do |global_options, options, args|
+        cmd.action do |_, _, args|
           client = Apollon::Client::Client.new
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = {}
           args.each do |provider_name|
-            val = client.auth.config.select { |k, v| k.downcase == provider_name.downcase }
+            val = client.auth.config.select { |k, _| k.downcase == provider_name.downcase }
             res.merge!(val) if val
           end
 

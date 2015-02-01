@@ -3,12 +3,15 @@
 require 'barge'
 require_relative 'provider_base'
 
+# Apollon Module
 module Apollon
+  # Apollon Provider Module
   module Provider
-    # DigitalOcean provider
+    # Apollon DigitalOcean Provider
     class DigitalOcean < ProviderBase
       attr_reader :barge
 
+      # Apollon DigitalOcean Machine
       class Machine < ProviderBase::Machine
       end
 
@@ -38,12 +41,12 @@ module Apollon
 
       def create_machine(opts = {})
         res = @barge.droplet.create(opts)
-        @compute.servers.select { |s| s.id == res['droplet']['id']}.first
+        @compute.servers.select { |s| s.id == res['droplet']['id'] }.first
       end
 
       def regions
         REGIONS
-         # @regions ||= @compute.regions.map(&:slug)
+        # @regions ||= @compute.regions.map(&:slug)
       end
     end
   end

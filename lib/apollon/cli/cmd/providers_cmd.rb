@@ -11,8 +11,8 @@ require_relative '../shared'
 module Apollon
   # Apollon CLI
   module Cli
-    desc 'Provider(s) manager'
-    command :provider do |c|
+    desc 'High Levels Providers manager'
+    command :providers do |c|
       c.desc 'List existing providers'
       c.command :list do |cmd|
         cmd.action do
@@ -24,16 +24,14 @@ module Apollon
 
       c.desc 'Show provider details'
       c.command :show do |cmd|
-        cmd.action do |global_options, options, args|
+        cmd.action do |_, _, args|
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
           args = args.nil? || args.empty? ? client.auth.providers_names : args
           res = {}
           args.each do |provider_name|
             val = client.auth.providers.select { |provider| provider.name.downcase == provider_name.downcase }.first
-            if val
-              res[val.name] = val.as_json
-            end
+            res[val.name] = val.as_json if val
           end
 
           puts JSON.pretty_generate(res)

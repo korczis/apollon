@@ -3,11 +3,13 @@
 require 'fog'
 require 'pp'
 
+# Apollon Module
 module Apollon
+  # Apollon Provider Module
   module Provider
     # Base class for specific Providers
     class ProviderBase
-      # Generic Provider Machine
+      # Apollon Generic Machine
       class Machine
         attr_reader :config, :compute, :machine, :provider
 
@@ -47,7 +49,7 @@ module Apollon
         def region
           res = @compute.send(:region) if @compute.respond_to?(:region)
           res = @machine.send(:region) if @machine.respond_to?(:region)
-          return res if res #.kind_of?(String)
+          return res if res # if res.kind_of?(String)
           # return res.attributes['slug'] if res.kind_of?(Fog::Compute::DigitalOcean::Region)
         end
       end
@@ -90,7 +92,6 @@ module Apollon
       def regions
         @regions ||= @compute.regions
       end
-
     end
   end
 end

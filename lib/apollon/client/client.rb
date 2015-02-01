@@ -8,12 +8,14 @@ require_relative '../version'
 
 # Apollon module
 module Apollon
+  # Apollon Client module
   module Client
+    # Apollon Client class
     class Client
       attr_reader :auth, :cluster, :machine, :opts
 
       DEFAULT_OPTS = {
-        app_data_dir: File.expand_path('~/.apollon'),
+        app_data_dir: File.expand_path('~/.apollon')
       }
 
       def initialize(opts = DEFAULT_OPTS)

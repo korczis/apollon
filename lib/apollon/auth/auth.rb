@@ -9,7 +9,9 @@ require_relative '../client/client'
 
 # Apollon module
 module Apollon
+  # Apollon Auth module
   module Auth
+    # Apollon Auth class
     class Auth
       DEFAULT_OPTS = {
         auth_config_settings: File.join(File.dirname(__FILE__), '..', '..', '..', 'config/auth.yml'),
@@ -44,9 +46,9 @@ module Apollon
             end
           end
 
-          values.each do |k, v|
-            res = v.select { |k, v| v == nil || v.empty? }
-            values.delete k if res.length > 0
+          values.each do |key, val|
+            res = val.select { |_k, v| v.nil? || v.empty? }
+            values.delete key if res.length > 0
           end
 
           values
@@ -54,7 +56,7 @@ module Apollon
 
         def load(path)
           res = {}
-          if File.exists?(path)
+          if File.exist?(path)
             content = File.read(path)
             res = JSON.parse(content)
           end
