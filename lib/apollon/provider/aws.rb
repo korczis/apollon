@@ -70,7 +70,7 @@ module Apollon
       end
 
       def ssh_keys
-        res = @compute.pmap do |k, v|
+        res = @compute.pmap do |_k, v|
           v.key_pairs.to_a
         end
         res.flatten!

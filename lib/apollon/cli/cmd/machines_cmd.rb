@@ -20,12 +20,10 @@ module Apollon
         cmd.action do |_, _, args|
           # TODO: Replace with unified constructor
           client = Apollon::Client::Client.new
-          args = args.nil? || args.empty? ? client.auth.providers_names : args
-          res = []
-          # TODO: Replace with unified constructor
-          client = Apollon::Client::Client.new
-          client.cluster.machines(args).each do |machine|
-            res << machine.as_json
+          providers = client.providers(args)
+
+          res = providers.map do |provider|
+            provider.machines.as_json
           end
 
           puts JSON.pretty_generate(res)
