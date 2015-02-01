@@ -84,7 +84,7 @@ module Apollon
           puts JSON.pretty_generate(opts)
 
           server = provider.create_machine(opts)
-          server
+          puts JSON.pretty_generate(server)
         end
       end
     end

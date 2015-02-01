@@ -37,7 +37,8 @@ module Apollon
       end
 
       def create_machine(opts = {})
-        @barge.droplet.create(opts)
+        res = @barge.droplet.create(opts)
+        @compute.servers.select { |s| s.id == res['droplet']['id']}.first
       end
 
       def regions
