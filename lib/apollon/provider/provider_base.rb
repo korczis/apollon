@@ -22,12 +22,13 @@ module Apollon
 
         def as_json(opts = {})
           {
+            id: id,
+            image_id: image_id,
             public_ip_address: public_ip_address,
             private_ip_address: private_ip_address,
-            flavor: flavor.name,
+            flavor: flavor,
             provider: provider.name,
-            region: region,
-            id: id
+            region: region
           }
         end
 
@@ -46,8 +47,8 @@ module Apollon
         def region
           res = @compute.send(:region) if @compute.respond_to?(:region)
           res = @machine.send(:region) if @machine.respond_to?(:region)
-          return res if res.kind_of?(String)
-          return res.attributes['slug'] if res.kind_of?(Fog::Compute::DigitalOcean::Region)
+          return res if res #.kind_of?(String)
+          # return res.attributes['slug'] if res.kind_of?(Fog::Compute::DigitalOcean::Region)
         end
       end
 
@@ -68,6 +69,10 @@ module Apollon
           name: name,
           regions: regions
         }
+      end
+
+      def create_machine(opts = {})
+        compute.servers.create(opts)
       end
 
       def machines(force_refresh = false)

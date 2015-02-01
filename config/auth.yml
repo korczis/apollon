@@ -1,4 +1,4 @@
 DigitalOcean:
-  fields: [id, key]
+  fields: [id, key, token]
 Aws:
   fields: [key, secret]

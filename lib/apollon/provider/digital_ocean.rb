@@ -1,11 +1,14 @@
 # encoding: utf-8
 
+require 'barge'
 require_relative 'provider_base'
 
 module Apollon
   module Provider
     # DigitalOcean provider
     class DigitalOcean < ProviderBase
+      attr_reader :barge
+
       class Machine < ProviderBase::Machine
       end
 
@@ -29,7 +32,12 @@ module Apollon
         }
 
         @compute = Fog::Compute.new(opts)
+        @barge = Barge::Client.new(access_token: config['token'])
         self
+      end
+
+      def create_machine(opts = {})
+        @barge.droplet.create(opts)
       end
 
       def regions

@@ -1,6 +1,9 @@
 [Unit]
 Description=Kubernetes Kubelet
 Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Requires=setup-network-environment.service
+After=setup-network-environment.service
+EnvironmentFile=/etc/network-environment
 
 [Service]
 ExecStartPre=/usr/bin/wget -N -P /opt/bin http://storage.googleapis.com/kubernetes/kubelet
