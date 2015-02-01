@@ -18,7 +18,7 @@ end
 RSpec.configure do |config|
   config.include CliHelper
 
-  config.filter_run_excluding :broken => true
+  config.filter_run_excluding(broken: true)
 
   config.before(:all) do
   end

@@ -19,7 +19,7 @@ RSpec::Core::RakeTask.new(:test)
 
 desc 'Run Rubocop'
 task :cop do
-  exec 'rubocop lib/'
+  exec 'rubocop bin/ lib/ spec/ Rakefile'
 end
 
 task :usage do
@@ -27,7 +27,7 @@ task :usage do
   # puts "No rake task specified so listing them ..."
   # Rake.application['tasklist'].invoke
 end
-task :default => [:usage]
+task(default: [:usage])
 
 desc 'Run continuous integration test'
 task :ci do
@@ -39,6 +39,8 @@ end
 
 YARD::Rake::YardocTask.new
 
-if $0 == __FILE__
+def usage
   Rake.application['usage'].invoke
 end
+
+usage if $PROGRAM_NAME == __FILE__

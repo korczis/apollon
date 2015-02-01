@@ -2,6 +2,7 @@
 
 require 'apollon/cli/cli'
 
+# CliHelper module
 module CliHelper
   # Execute block and capture its stdou
   # @param block Block to be executed with stdout redirected
@@ -21,10 +22,10 @@ module CliHelper
   # @param args Arguments
   # @return Captured stdout
   def run_cli(args = [])
-    old = $0
-    $0 = 'apollon'
+    old = $PROGRAM_NAME
+    $PROGRAM_NAME = 'apollon'
     res = capture_stdout { launch(args) }
-    $0 = old
+    $PROGRAM_NAME = old
     res
   end
 end
