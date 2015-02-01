@@ -32,7 +32,7 @@ task :default => [:usage]
 desc 'Run continuous integration test'
 task :ci do
   Rake::Task['test'].invoke
-  Rake::Task['test:cop'].invoke  # if RUBY_VERSION.start_with?('2.2') == false
+  Rake::Task['cop'].invoke  # if RUBY_VERSION.start_with?('2.2') == false
   Rake::Task['yard'].invoke
   Rake::Task['coveralls:push'].invoke
 end
