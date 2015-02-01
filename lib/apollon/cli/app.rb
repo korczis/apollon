@@ -31,8 +31,11 @@ module Apollon
       # Error logic here
       # return false to skip default error handling
       # binding.pry
-      puts exception.backtrace
-      puts exception.inspect
+      unless exception.kind_of?(GLI::BadCommandLine)
+        puts exception.backtrace
+        puts exception.inspect
+      end
+
       true
     end
 

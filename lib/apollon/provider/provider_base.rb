@@ -92,6 +92,10 @@ module Apollon
       def regions
         @regions ||= @compute.regions
       end
+
+      def ssh_keys
+        fail NotImplementedError
+      end
     end
   end
 end

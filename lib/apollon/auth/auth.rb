@@ -20,7 +20,7 @@ module Apollon
 
       PROVIDERS = %w(Aws DigitalOcean)
 
-      attr_reader :auth_config, :auth_path, :client, :config, :opts
+      attr_reader :auth_config, :client, :config, :opts
 
       def initialize(client, opts = DEFAULT_OPTS)
         @client = client
@@ -90,8 +90,11 @@ module Apollon
         @provider_instances[canonical_name]
       end
 
-      def providers
-        @provider_instances.values
+      def providers(args = nil)
+        names = args && !args.empty? ? args : @provider_instances.keys
+        names = names.map(&:downcase)
+        res = @provider_instances.values.select { |p| names.include?(p.name.downcase) } if args
+        res
       end
 
       def providers_names
@@ -100,7 +103,7 @@ module Apollon
 
       def write
         # Generate pretty JSON representation
-        Auth.write(auth_path, @config)
+        Auth.write(@opts[:auth_config], @config)
         @config
       end
 

@@ -68,6 +68,13 @@ module Apollon
       def regions
         REGIONS
       end
+
+      def ssh_keys
+        res = @compute.pmap do |k, v|
+          v.key_pairs.to_a
+        end
+        res.flatten!
+      end
     end
   end
 end

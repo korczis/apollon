@@ -46,6 +46,11 @@ module Apollon
         end
       end
 
+      def providers(*args)
+        res = @auth.providers(*args)
+        res
+      end
+
       def version
         Apollon::VERSION
       end

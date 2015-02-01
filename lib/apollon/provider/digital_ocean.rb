@@ -48,6 +48,10 @@ module Apollon
         REGIONS
         # @regions ||= @compute.regions.map(&:slug)
       end
+
+      def ssh_keys
+        @compute.ssh_keys.to_a
+      end
     end
   end
 end
