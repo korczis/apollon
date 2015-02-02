@@ -26,6 +26,8 @@ module Apollon
             provider.machines.as_json
           end
 
+          res.flatten!
+
           puts JSON.pretty_generate(res)
         end
       end

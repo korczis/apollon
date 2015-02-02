@@ -28,9 +28,9 @@ module Apollon
             image_id: image_id,
             public_ip_address: public_ip_address,
             private_ip_address: private_ip_address,
-            flavor: flavor,
-            provider: provider.name,
-            region: region
+            flavor: flavor.attributes,
+            provider: provider,
+            region: region.attributes
           }
         end
 
