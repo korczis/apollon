@@ -5,6 +5,7 @@ coreos:
     # replace this IP
     etcd_servers: "http://10.133.200.178:4001"
     metadata: role=worker,public_ip=$public_ipv4,private_ip=$private_ipv4,region=europe,dc=ams3
+  
   units:
     - name: fleet.service
       command: start
