@@ -9,7 +9,8 @@ https://discovery.etcd.io/7498421c405ab6bd0b23d75dd8aae3dc
 
 ## Create Etcd node
 
-See https://github.com/korczis/apollon/blob/master/config/coreos/conf2015/etcd.yml
+See [https://github.com/korczis/apollon/blob/master/config/coreos/conf2015/etcd.yml](etcd.yml)
 
-```
-```
+## Create worker nodes
+
+See [https://github.com/korczis/apollon/blob/master/config/coreos/conf2015/node.yml](node.yml)
