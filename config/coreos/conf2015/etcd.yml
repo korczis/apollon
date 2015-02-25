@@ -1,0 +1,24 @@
+#cloud-config
+
+# See - https://coreos.com/docs/cluster-management/setup/cluster-architectures/#configuration-for-central-services-role
+
+coreos:
+  etcd:
+    # generate a new token for each unique cluster from https://discovery.etcd.io/new
+    discovery: https://discovery.etcd.io/7498421c405ab6bd0b23d75dd8aae3dc
+    addr: $public_ipv4:4001
+    # multi-region and multi-cloud deployments need to use $public_ipv4
+    # use $public_ipv4 if your datacenter of choice does not support private networking
+    peer-addr: $private_ipv4:7001
+  fleet:
+      metadata: role=etcd,public_ip=$public_ipv4,private_ip=$private_ipv4,region=europe,dc=ams3
+  units:
+    - name: etcd.service
+      command: start
+    - name: fleet.service
+      command: start
+    - name: docker.service
+      mask: true
+  update:
+    group: stable
+    reboot-strategy: off
